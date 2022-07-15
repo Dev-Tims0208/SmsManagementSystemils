@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TryLogin.Models.User>
+
+
+@{
+    ViewBag.Title = "Display Userslist Sms Management System";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    body {
+        background: url(/images/2.jpg) no-repeat 100% 100%;
+    }
+</style>
+<body>
+    <div class="container userto">
+        <div class="row userlistrow">
+            <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY USERLIST</h2>
+
+
+
+
+            <button class="btn btn-primary" style="display: inline; float:right; background-color:yellow; color:black;" onclick="location.href = '@Url.Action("UserRegistration", "Manage")' ">ADD USER <span class="fa fa-users" style="color:red">   </span> </button>
+
+
+            <div class="container userlistdes">
+                <table class="table table-border" id="userList">
+                    <thead>
+                    <th style="display:none;">
+                        Id <span class="fa fa-sort-numeric-asc" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        FullName <br /> <span class="fa fa-user" style="color:yellow">   </span>
+                    <th style="font-family:Cambria">
+                        UserName <span class="fa fa-users" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        Password <span class="fa fa-key" style="color:yellow">   </span>
+                    </th>
+
+                    <th style="font-family:Cambria">
+                        Address <br /> <span class="fa fa-location-arrow" style="color:yellow">   </span>
+                    </th>
+                    @*<th>
+                        Gender <span class="fa fa-venus-mars" style="color:yellow">   </span>
+                    </th>*@
+                    <th style="font-family:Cambria">
+                        EmailAddress <br /> <span class="fa fa-envelope-o" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        Office Name  <br /><span class="fa fa-building" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        Division Name <br /> <span class="fa fa-building-o" style="color:yellow">   </span>
+                    </th>
+
+                    <th style="font-family:Cambria">
+                        Date Added <span class="fa fa-calendar-o" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        Action <br /> <span class="fa fa-floppy-o" style="color:yellow">   </span>
+                    </th>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td style="display:none;">@user.UserID</td>
+                                <td>@user.Name</td>
+                                <td>@(user.LoginID.HasValue ? user.Login.Username : "")</td>
+                                <td>@(user.LoginID.HasValue ? user.Login.Password : "")</td>
+                                <td>@user.Address</td>
+                                @*<td>@user.Gender</td>*@
+                                <td>@user.EmailID</td>
+                                <td>@(user.OfficeID.HasValue ? user.CgppOffice.Name : "")</td>
+                                <td>@(user.DivisionID.HasValue ? user.CgppDivision.Name : "")</td>
+                                <td>@user.DateAdded</td>*
+                                @*<td>@(user.RolesId.HasValue ? user.CgppRole.Name : "")</td>*@
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = user.UserID }, new { @class = "btn btn-success fa fa-pencil-square" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#userList').dataTable({
+
+                "order": [[0, "desc"]]
+            });
+            document.body.style.color = '#dd3e3e';
+            toastr.success('LOADING SUCCESS');
+        });
+    </script>
+}

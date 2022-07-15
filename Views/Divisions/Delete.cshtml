@@ -1,0 +1,42 @@
+﻿@model TryLogin.Models.CgppDivision
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+   
+    <form>
+        <div class="col-md-5 deletediv">
+            <dl class="dl-horizontal">
+                <dt>
+                    <label>Division Name</label>
+                </dt>
+
+                <dd>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                </dd>
+
+                <dt>
+                    <label>Office Name</label>
+                </dt>
+
+                <dd>
+                    @Html.EditorFor(model => model.CgppOffice.Name, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            </dl>
+            <h3>Are you sure you want to delete this?</h3>
+</form>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:yellow" /> 
+         
+        </div>
+    }
+</div>
+</div>

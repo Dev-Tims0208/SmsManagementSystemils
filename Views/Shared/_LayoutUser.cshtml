@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html>
+@{ 
+    ViewBag.Title = "User Sms Management System";
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/chosen.css" rel="stylesheet" />
+    <link href="~/Content/admin-dashboard/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/admin-dashboard/style.css" rel="stylesheet" />
+    <script src="~/Scripts/Adminjsdash/jquery-2.1.1.min.js"></script>
+    <link href="~/Content/admin-dashboard/font-awesome.css" rel="stylesheet" />
+    <script src="~/Scripts/Adminjsdash/Chart.min.js"></script>
+    <script src="~/Scripts/Adminjsdash/modernizr.min.js"></script>
+    <script src="~/Scripts/Adminjsdash/chartinator.js"></script>
+    <script src="~/Scripts/Adminjsdash/skycons.js"></script>
+    <script src="~/Scripts/Adminjsdash/bars.js"></script>
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//online-fonts -->
+</head>
+<body style="height:100vh;">
+
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="sidebar-menu">
+                    <div class="logo">
+                       
+                    </div>
+                    <div class="menu">
+                        <ul id="menu">
+                            <i class="fa fa-users" style="color: yellow "></i>
+                            <li>@Html.ActionLink("USERS", "Index", "User")</li>
+
+                        
+                      
+                            <li id="menu-academico">
+                                <a href="#"><i class="fa fa-phone-square" style="color: yellow;"></i><span style="color:whitesmoke;">PHONEBOOKS</span><span class="fa fa-angle-right" style="float: right; color:red;;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li>@Html.ActionLink("Add Number", "Create", "Phonebooks")</li>
+                                    <li>@Html.ActionLink("Display PhoneBooks", "Index", "Phonebooks")</li>
+                                </ul>
+                            </li>
+
+                            @*<li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>*@
+                            <li>
+                                <a href="#"><i class="fa fa-envelope" style="color: yellow" ></i><span style="color:whitesmoke;">DRAFTS</span ><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li>@Html.ActionLink("Create Single Message ", "Create", "SingleDrafts")</li>
+                                    <li>@Html.ActionLink("Create Multiple Message ", "Create", "Drafts")</li>
+                                    <li>@Html.ActionLink("Display Drafts", "Index", "Drafts")</li>
+                    
+                                </ul>
+                            </li>
+                       
+                            <li>
+                                <a href="#"><i class="fa fa-sign-out" style="color: yellow"></i><span style="color:whitesmoke;">LOGOUT</span><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/toastr.js"></script>
+    <script src="~/Scripts/chosen.jquery.min.js"></script>
+   
+    <script src="~/Scripts/Adminjsdash/scripts.js"></script>
+    <script src="~/Scripts/Adminjsdash/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+<script>
+    var toggle = true;
+
+    $(".sidebar-icon").click(function () {
+        if (toggle) {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({ "position": "absolute" });
+        }
+        else {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function () {
+                $("#menu span").css({ "position": "relative" });
+            }, 400);
+        }
+        toggle = !toggle;
+    });
+
+    $(document).ready(function () {
+        var navoffeset = $(".header-main").offset().top;
+        $(window).scroll(function () {
+            var scrollpos = $(window).scrollTop();
+            if (scrollpos >= navoffeset) {
+                $(".header-main").addClass("fixed");
+            } else {
+                $(".header-main").removeClass("fixed");
+            }
+        });
+
+    });
+</script>
+
+
+
+
+@*<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Add User", "UserRegistration", "Manage")</li>
+                <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">CREATE MENU<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+
+                        <li>@Html.ActionLink("Create Office", "Create", "Offices")</li>
+                        <li>@Html.ActionLink("Create Division", "Create", "Divisions")</li>
+                        <li>@Html.ActionLink("ADD NUMBER", "Create", "Phonebooks")</li>
+                        <li>@Html.ActionLink("CREATE MESSAGE ", "Create", "Drafts")</li>
+
+                    </ul>
+            </ul>
+
+
+
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">DISPLAY MENU<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li>@Html.ActionLink("Display Register", "UsersList", "Manage")</li>
+                        <li>@Html.ActionLink("Display Office", "Index", "Offices")</li>
+                        <li>@Html.ActionLink("Display Division", "Index", "Divisions")</li>
+                        <li>@Html.ActionLink("Display PhoneBooks", "Index", "Phonebooks")</li>
+                        <li>@Html.ActionLink("Display Drafts", "Index", "Drafts")</li>
+
+                    </ul>
+                </li>
+            </ul>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/toastr.css" rel="stylesheet" />
+        <link href="~/Content/chosen.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("User", "Index", "User")</li>
+
+
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                        <li>@Html.ActionLink("Add PhoneNumber", "Create", "Phonebooks")</li>
+                        <li>@Html.ActionLink("Create Drafts", "Create", "Drafts")</li>
+                        <li>@Html.ActionLink("Draft Display", "Index", "Drafts")</li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+
+            <footer>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        <script src="~/Scripts/toastr.js"></script>
+        <script src="~/Scripts/chosen.jquery.min.js"></script>
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+
+
+
+@*@{
+        if (User.IsInRole("ADMIN"))
+        {
+           PARA SA HIDE TO  PAG MAY AUTHORIZE NA
+        }
+
+    }*@
+
+@{
+    if (User.IsInRole("ADMIN"))
+    {
+        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+    }
+
+}
+@*<li>@Html.ActionLink("Logout", "Logout", "Account")</li>*@

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76f95f7a7bef4b6da744f13bf50b558b" Name="Diagram1">
+        <EntityTypeShape EntityType="ilsModel.Broadcaster" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.CgppDivision" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.CgppDraft" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.CgppOffice" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.CgppPhonebook" Width="1.5" PointX="8.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.CgppRole" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Classification" Width="1.5" PointX="8.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.ConcernOffice" Width="1.5" PointX="8" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Draft" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.EntryLog" Width="1.5" PointX="5.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.FormattedMessage" Width="1.5" PointX="11" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Grouping_cellnumbers" Width="1.5" PointX="13" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Group" Width="1.5" PointX="10.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Login" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.m_tblSMS_SystemFormat" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Menu" Width="1.5" PointX="2.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.MobileNetProvider" Width="1.5" PointX="10.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Municipality" Width="1.5" PointX="13" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.OfficialsInformation" Width="1.5" PointX="15.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.OfficialsPosition" Width="1.5" PointX="13" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.Phonebook" Width="1.5" PointX="13.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.pilaKeyword" Width="1.5" PointX="15.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.PrefixMobileNumber" Width="1.5" PointX="13" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.rawMessage" Width="1.5" PointX="15.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.SentItem" Width="1.5" PointX="15.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.SimCardInfo" Width="1.5" PointX="4.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.SMSFormat" Width="1.5" PointX="5.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.SmsPDU" Width="1.5" PointX="6.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.SystemUser" Width="1.5" PointX="13.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.tblGender" Width="1.5" PointX="15.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.tblStuffNumber" Width="1.5" PointX="17.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.UnidentifiedNetwork" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="ilsModel.User" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="ilsModel.FK_CgppDivision_CgppOffices" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppDraft_CgppDivision" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppPhonebook_CgppDivision" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_Division_Offices" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_User_CgppDivision" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppDraft_CgppOffices" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppDraft_Drafts" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppDraft_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppPhonebook_CgppOffices" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_User_CgppOffices" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppPhonebook_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_Login_CgppRole" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_FormattedMessages_Classification" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_ConcernOffices_SMSFormats" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_FormattedMessages_SMSFormats" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_Grouping_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_User_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_PrefixMobileNumber_MobileNetProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_OfficialsInformations_Municipality" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_OfficialsInformations_OfficialsPosition" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_OfficialsInformations_PrefixMobileNumber" ManuallyRouted="false" />
+        <AssociationConnector Association="ilsModel.FK_CgppDraft_CgppPhonebook" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

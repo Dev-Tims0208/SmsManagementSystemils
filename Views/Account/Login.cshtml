@@ -1,0 +1,52 @@
+﻿@model TryLogin.Models.Login
+
+@{
+    ViewBag.Title = "Login Sms Management System";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header-w3l">
+    <h1>SMS MANAGEMENT SYSTEM</h1>
+</div> 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="main-w3layouts-agileinfo">
+    <div class="wthree-form">
+        <h2>Fill out the form below to login</h2>
+
+        <div class="form-sub-w3">
+
+            @Html.EditorFor(model => model.Username, new { htmlAttributes = new {  placeholder = "Username" } })
+            <div class="icon-w3">
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger custom-input" })
+        </div>
+
+        <div class="form-sub-w3">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new {  placeholder = "Password" } })
+            <div class="icon-w3">
+                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            </div>
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger custom-input" })
+        </div>
+
+
+        <div class="clear"></div>
+        <div class="submit-agileits">
+            <input type="submit" value="Login" class="btn btn-default" />
+        </div>
+      
+        <div class="custom-val">
+            @ViewBag.Message
+        </div>
+    </div>
+
+</div>
+}
+
+<div class="footer">
+   
+</div>

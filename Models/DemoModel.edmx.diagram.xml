@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50886ab2c2c34401b4b3f2ea7b34c462" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="MVCDemoModel.District" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCDemoModel.Login" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCDemoModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MVCDemoModel.FK_User_District" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCDemoModel.FK_User_Login" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MVCDemoModel.Broadcaster" Width="1.5" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.CgppDivision" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="MVCDemoModel.CgppOffice" Width="1.5" PointX="0.75" PointY="14.125" />
+        <EntityTypeShape EntityType="MVCDemoModel.CgppPhonebook" Width="1.5" PointX="2.75" PointY="9.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.Classification" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MVCDemoModel.ConcernOffice" Width="1.5" PointX="13" PointY="9" />
+        <EntityTypeShape EntityType="MVCDemoModel.Draft" Width="1.5" PointX="5.75" PointY="13.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.EntryLog" Width="1.5" PointX="13.75" PointY="12.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.FormattedMessage" Width="1.5" PointX="13" PointY="3.75" />
+        <EntityTypeShape EntityType="MVCDemoModel.Grouping_cellnumbers" Width="1.5" PointX="11" PointY="13.25" />
+        <EntityTypeShape EntityType="MVCDemoModel.Group" Width="1.5" PointX="8.75" PointY="13.125" />
+        <EntityTypeShape EntityType="MVCDemoModel.m_tblSMS_SystemFormat" Width="1.5" PointX="13.75" PointY="15.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.Menu" Width="1.5" PointX="15.75" PointY="1.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.MobileNetProvider" Width="1.5" PointX="3.75" PointY="7.5" />
+        <EntityTypeShape EntityType="MVCDemoModel.Municipality" Width="1.5" PointX="6" PointY="4.125" />
+        <EntityTypeShape EntityType="MVCDemoModel.OfficialsInformation" Width="1.5" PointX="8.25" PointY="6.25" />
+        <EntityTypeShape EntityType="MVCDemoModel.OfficialsPosition" Width="1.5" PointX="6" PointY="10.625" />
+        <EntityTypeShape EntityType="MVCDemoModel.Phonebook" Width="1.5" PointX="0.75" PointY="16.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.pilaKeyword" Width="1.5" PointX="2.75" PointY="16.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.PrefixMobileNumber" Width="1.5" PointX="6" PointY="7.25" />
+        <EntityTypeShape EntityType="MVCDemoModel.rawMessage" Width="1.5" PointX="15.75" PointY="5.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.SentItem" Width="1.5" PointX="7.75" PointY="16.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.SimCardInfo" Width="1.5" PointX="15.75" PointY="9.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.SMSFormat" Width="1.5" PointX="10.75" PointY="4.25" />
+        <EntityTypeShape EntityType="MVCDemoModel.SmsPDU" Width="1.5" PointX="9.75" PointY="16.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.SystemUser" Width="1.5" PointX="15.75" PointY="12.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.tblGender" Width="1.5" PointX="5.75" PointY="1.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.tblStuffNumber" Width="1.5" PointX="15.75" PointY="15.875" />
+        <EntityTypeShape EntityType="MVCDemoModel.UnidentifiedNetwork" Width="1.5" PointX="4.75" PointY="17.875" />
+        <AssociationConnector Association="MVCDemoModel.FK_Division_Offices" />
+        <AssociationConnector Association="MVCDemoModel.FK_FormattedMessages_Classification" />
+        <AssociationConnector Association="MVCDemoModel.FK_ConcernOffices_SMSFormats" />
+        <AssociationConnector Association="MVCDemoModel.FK_FormattedMessages_SMSFormats" />
+        <AssociationConnector Association="MVCDemoModel.FK_Grouping_Groups" />
+        <AssociationConnector Association="MVCDemoModel.FK_PrefixMobileNumber_MobileNetProvider" />
+        <AssociationConnector Association="MVCDemoModel.FK_OfficialsInformations_Municipality" />
+        <AssociationConnector Association="MVCDemoModel.FK_OfficialsInformations_OfficialsPosition" />
+        <AssociationConnector Association="MVCDemoModel.FK_OfficialsInformations_PrefixMobileNumber" />
+        <AssociationConnector Association="MVCDemoModel.FK_User_CgppDivision" />
+        <AssociationConnector Association="MVCDemoModel.FK_User_CgppOffices" />
+        <EntityTypeShape EntityType="MVCDemoModel.CgppRole" Width="1.5" PointX="18.375" PointY="0.75" />
+        <AssociationConnector Association="MVCDemoModel.FK_Login_CgppRole" />
+        <AssociationConnector Association="MVCDemoModel.FK_Drafts_Drafts" />
+        <AssociationConnector Association="MVCDemoModel.FK_Drafts_CgppPhonebook" />
+        <AssociationConnector Association="MVCDemoModel.FK_Drafts_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

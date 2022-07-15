@@ -1,0 +1,1623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99FC59AB-A6F7-4497-BBCC-AAF28F6DFEAC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TryLogin</RootNamespace>
+    <AssemblyName>TryLogin</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44348</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CgppDraftsController.cs" />
+    <Compile Include="Controllers\DivisionsController.cs" />
+    <Compile Include="Controllers\DraftsController.cs" />
+    <Compile Include="Controllers\ExampleController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OfficesController.cs" />
+    <Compile Include="Controllers\PhonebooksController.cs" />
+    <Compile Include="Controllers\SingleDraftsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Broadcaster.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppDivision.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppDraft.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppOffice.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppPhonebook.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppRole.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Classification.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConcernOffice.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Draft.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntryLog.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormattedMessage.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Grouping_cellnumbers.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Login.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Menu.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaDataClass.cs" />
+    <Compile Include="Models\MobileNetProvider.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Municipality.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\m_tblSMS_SystemFormat.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfficialsInformation.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OfficialsPosition.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Phonebook.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pilaKeyword.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrefixMobileNumber.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rawMessage.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SentItem.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SimCardInfo.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SiteRole.cs" />
+    <Compile Include="Models\SMSFormat.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsManagementConnection.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmsManagementConnection.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsManagementConnection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsManagementConnection.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsPDU.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SystemUser.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblGender.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStuffNumber.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnidentifiedNetwork.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\DraftListVM.cs" />
+    <Compile Include="ViewModel\DraftVM.cs" />
+    <Compile Include="ViewModel\ManageVM.cs" />
+    <Compile Include="ViewModel\PhonebookListVM.cs" />
+    <Compile Include="ViewModel\PhonebookVM.cs" />
+    <Compile Include="ViewModel\SingleDraftVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.Globalization.Calendars.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Net.Http.dll" />
+    <Content Include="bin\roslyn\System.Net.Sockets.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\TryLogin.dll" />
+    <Content Include="bin\TryLogin.dll.config" />
+    <Content Include="bin\TryLogin.pdb" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\admin-dashboard\bootstrap.css" />
+    <Content Include="Content\admin-dashboard\demo-page.css" />
+    <Content Include="Content\admin-dashboard\examples.css" />
+    <Content Include="Content\admin-dashboard\font-awesome.css" />
+    <Content Include="Content\admin-dashboard\geochart.css" />
+    <Content Include="Content\admin-dashboard\hover.css" />
+    <Content Include="Content\admin-dashboard\magnific-popup.css" />
+    <Content Include="Content\admin-dashboard\style.css" />
+    <Content Include="Content\assets\css\nav-overlay.css" />
+    <Content Include="Content\assets\css\samplemessage.webm" />
+    <Content Include="Content\assets\css\style-starter.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\chosen.css" />
+    <Content Include="Content\Createdraftsui.css" />
+    <Content Include="Content\Createnumberui.css" />
+    <Content Include="Content\Createdivisionui.css" />
+    <Content Include="Content\Createofficeui.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
+    <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
+    <Content Include="Content\DataTables\css\autoFill.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.css" />
+    <Content Include="Content\DataTables\css\autoFill.foundation.min.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.css" />
+    <Content Include="Content\DataTables\css\autoFill.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\buttons.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.css" />
+    <Content Include="Content\DataTables\css\buttons.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.css" />
+    <Content Include="Content\DataTables\css\buttons.foundation.min.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.css" />
+    <Content Include="Content\DataTables\css\buttons.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\colReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\colReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\colReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.css" />
+    <Content Include="Content\DataTables\css\dataTables.material.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.css" />
+    <Content Include="Content\DataTables\css\dataTables.uikit.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.foundation.min.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.css" />
+    <Content Include="Content\DataTables\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.css" />
+    <Content Include="Content\DataTables\css\keyTable.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.css" />
+    <Content Include="Content\DataTables\css\keyTable.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.css" />
+    <Content Include="Content\DataTables\css\keyTable.foundation.min.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.css" />
+    <Content Include="Content\DataTables\css\keyTable.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.css" />
+    <Content Include="Content\DataTables\css\responsive.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.css" />
+    <Content Include="Content\DataTables\css\responsive.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.css" />
+    <Content Include="Content\DataTables\css\responsive.foundation.min.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.css" />
+    <Content Include="Content\DataTables\css\responsive.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.css" />
+    <Content Include="Content\DataTables\css\rowReorder.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.css" />
+    <Content Include="Content\DataTables\css\rowReorder.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.css" />
+    <Content Include="Content\DataTables\css\rowReorder.foundation.min.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.css" />
+    <Content Include="Content\DataTables\css\rowReorder.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.css" />
+    <Content Include="Content\DataTables\css\scroller.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.css" />
+    <Content Include="Content\DataTables\css\scroller.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.css" />
+    <Content Include="Content\DataTables\css\scroller.foundation.min.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.css" />
+    <Content Include="Content\DataTables\css\scroller.jqueryui.min.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.css" />
+    <Content Include="Content\DataTables\css\select.bootstrap.min.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.css" />
+    <Content Include="Content\DataTables\css\select.dataTables.min.css" />
+    <Content Include="Content\DataTables\css\select.foundation.css" />
+    <Content Include="Content\DataTables\css\select.foundation.min.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.css" />
+    <Content Include="Content\DataTables\css\select.jqueryui.min.css" />
+    <Content Include="Content\DataTables\images\details_close.png" />
+    <Content Include="Content\DataTables\images\details_open.png" />
+    <Content Include="Content\DataTables\images\sort_asc.png" />
+    <Content Include="Content\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\images\sort_both.png" />
+    <Content Include="Content\DataTables\images\sort_desc.png" />
+    <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\registrationtemplate.css" />
+    <Content Include="Content\sidenav.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\sweetalert.css" />
+    <Content Include="Content\sweetalert\sweetalert2.css" />
+    <Content Include="Content\sweetalert\sweetalert2.min.css" />
+    <Content Include="Content\template.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\170057-black-and-grey-grunge-watercolor-background-image.jpg" />
+    <Content Include="images\1860753.jpg" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\404.png" />
+    <Content Include="images\asss.jpg" />
+    <Content Include="images\awit.jpg" />
+    <Content Include="images\b3.png" />
+    <Content Include="images\b4.jpg" />
+    <Content Include="images\bann.jpg" />
+    <Content Include="images\banner1.jpg" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\banner3.jpg" />
+    <Content Include="images\banner4.jpg" />
+    <Content Include="images\Black-leather-iphone-11-pro.jpg" />
+    <Content Include="images\blog1.jpg" />
+    <Content Include="images\blog2.jpg" />
+    <Content Include="images\c1.jpg" />
+    <Content Include="images\c2.jpg" />
+    <Content Include="images\c3.jpg" />
+    <Content Include="images\c4.jpg" />
+    <Content Include="images\chalkboard-10.jpg" />
+    <Content Include="images\chef1.jpg" />
+    <Content Include="images\chef2.jpg" />
+    <Content Include="images\chef3.jpg" />
+    <Content Include="images\city-hall.png" />
+    <Content Include="images\climate.jpg" />
+    <Content Include="images\close.png" />
+    <Content Include="images\divisioncreate.JPG" />
+    <Content Include="images\ftr-icons.png" />
+    <Content Include="images\g1.jpg" />
+    <Content Include="images\g2.jpg" />
+    <Content Include="images\g3.jpg" />
+    <Content Include="images\g4.jpg" />
+    <Content Include="images\g5.jpg" />
+    <Content Include="images\g6.jpg" />
+    <Content Include="images\g7.jpg" />
+    <Content Include="images\g8.jpg" />
+    <Content Include="images\gray1.jpg" />
+    <Content Include="images\grayrock.jpg" />
+    <Content Include="images\huawei.jpg" />
+    <Content Include="images\icon.png" />
+    <Content Include="images\Imageslog.png" />
+    <Content Include="images\laptop.jpg" />
+    <Content Include="images\login.jpg" />
+    <Content Include="images\mess.png" />
+    <Content Include="images\next.png" />
+    <Content Include="images\officescreate.JPG" />
+    <Content Include="images\p1.png" />
+    <Content Include="images\p2.png" />
+    <Content Include="images\p3.png" />
+    <Content Include="images\p4.png" />
+    <Content Include="images\p5.png" />
+    <Content Include="images\p6.png" />
+    <Content Include="images\p7.png" />
+    <Content Include="images\p8.png" />
+    <Content Include="images\pp1.png" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\pro1.jpg" />
+    <Content Include="images\pro10.jpg" />
+    <Content Include="images\pro12.jpg" />
+    <Content Include="images\pro2.jpg" />
+    <Content Include="images\pro3.jpg" />
+    <Content Include="images\pro4.jpg" />
+    <Content Include="images\pro5.jpg" />
+    <Content Include="images\pro6.jpg" />
+    <Content Include="images\pro7.jpg" />
+    <Content Include="images\pro8.jpg" />
+    <Content Include="images\pro9.jpg" />
+    <Content Include="images\reg.png" />
+    <Content Include="images\s1.jpg" />
+    <Content Include="images\s2.jpg" />
+    <Content Include="images\s3.jpg" />
+    <Content Include="images\s4.jpg" />
+    <Content Include="images\search.png" />
+    <Content Include="images\shoppy.jpg" />
+    <Content Include="images\sidebar.jpg" />
+    <Content Include="images\sms.png" />
+    <Content Include="images\smscreate.JPG" />
+    <Content Include="images\ss1.jpg" />
+    <Content Include="images\ss2.jpg" />
+    <Content Include="images\ss3.jpg" />
+    <Content Include="images\ss4.jpg" />
+    <Content Include="images\team1.jpg" />
+    <Content Include="images\team2.jpg" />
+    <Content Include="images\team3.jpg" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\tomclyde.jpg" />
+    <Content Include="images\trylang.jpg" />
+    <Content Include="images\Vector.jpg" />
+    <Content Include="images\visit.png" />
+    <Content Include="images\XfsRMB.jpg" />
+    <Content Include="Models\SmsManagementConnection.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+      <LastGenOutput>SmsManagementConnection.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SmsManagementConnection.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+      <LastGenOutput>SmsManagementConnection.cs</LastGenOutput>
+    </Content>
+    <Content Include="obj\Debug\TempPE\Models.DemoModel.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.DemoModel.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.DemoModel.Designer.cs.dll" />
+    <Content Include="obj\Debug\TryLogin.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TryLogin.dll" />
+    <Content Include="obj\Debug\TryLogin.pdb" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\LICENSE.txt" />
+    <Content Include="packages\EntityFramework.6.4.4\build\Microsoft.Data.Entity.Build.Tasks.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\Icon.png" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net40\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net40\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\net45\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.SqlServer.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.SqlServer.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\lib\netstandard2.1\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\about_EntityFramework6.help.txt" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net40\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net40\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net40\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net40\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net45\any\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net45\any\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net45\win-x86\ef6.exe" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\net45\win-x86\ef6.pdb" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\netcoreapp3.0\any\ef6.dll" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\netcoreapp3.0\any\ef6.pdb" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <EntityDeploy Include="Models\SmsManagementConnection.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SmsManagementConnection.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SmsManagementConnection.edmx.diagram">
+      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+    </Content>
+    <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="packages\jQuery.3.4.1\Tools\jquery-3.4.1.intellisense.js" />
+    <None Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.js" />
+    <Content Include="packages\jQuery.Validation.1.17.0\Content\Scripts\jquery.validate.min.js" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="Scripts\Adminjsdash\bars.js" />
+    <Content Include="Scripts\Adminjsdash\bootstrap.js" />
+    <Content Include="Scripts\Adminjsdash\Chart.min.js" />
+    <Content Include="Scripts\Adminjsdash\chartinator.js" />
+    <Content Include="Scripts\Adminjsdash\gmaps.js" />
+    <Content Include="Scripts\Adminjsdash\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\Adminjsdash\jquery.magnific-popup.js" />
+    <Content Include="Scripts\Adminjsdash\jquery.nicescroll.js" />
+    <Content Include="Scripts\Adminjsdash\modernizr.min.js" />
+    <Content Include="Scripts\Adminjsdash\nivo-lightbox.min.js" />
+    <Content Include="Scripts\Adminjsdash\scripts.js" />
+    <Content Include="Scripts\Adminjsdash\skycons.js" />
+    <Content Include="Scripts\assets\js\bootstrap.min.js" />
+    <Content Include="Scripts\assets\js\classie.js" />
+    <Content Include="Scripts\assets\js\counter.js" />
+    <Content Include="Scripts\assets\js\demo1.js" />
+    <Content Include="Scripts\assets\js\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\assets\js\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\assets\js\owl.carousel.js" />
+    <Content Include="Scripts\assets\js\theme-change.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\DataTables\css\mixins.scss" />
+    <Content Include=".vs\config\applicationhost.config" />
+    <Content Include=".git\COMMIT_EDITMSG" />
+    <Content Include=".git\config" />
+    <Content Include=".git\description" />
+    <Content Include=".git\FETCH_HEAD" />
+    <Content Include=".git\HEAD" />
+    <Content Include=".git\hooks\applypatch-msg.sample" />
+    <Content Include=".git\hooks\commit-msg.sample" />
+    <Content Include=".git\hooks\fsmonitor-watchman.sample" />
+    <Content Include=".git\hooks\post-update.sample" />
+    <Content Include=".git\hooks\pre-applypatch.sample" />
+    <Content Include=".git\hooks\pre-commit.sample" />
+    <Content Include=".git\hooks\pre-merge-commit.sample" />
+    <Content Include=".git\hooks\pre-push.sample" />
+    <Content Include=".git\hooks\pre-rebase.sample" />
+    <Content Include=".git\hooks\pre-receive.sample" />
+    <Content Include=".git\hooks\prepare-commit-msg.sample" />
+    <Content Include=".git\hooks\push-to-checkout.sample" />
+    <Content Include=".git\hooks\update.sample" />
+    <Content Include=".git\index" />
+    <Content Include=".git\info\exclude" />
+    <Content Include=".git\logs\HEAD" />
+    <Content Include=".git\logs\refs\heads\master" />
+    <Content Include=".git\logs\refs\remotes\origin\master" />
+    <Content Include=".git\objects\00\c4419debeb2856a68388b5d17a6f925380acdc" />
+    <Content Include=".git\objects\01\e29d6128af9192529c3156fb21a19705d2574d" />
+    <Content Include=".git\objects\02\800d415b386c15d2cf65a960f0f3d5db7cbf39" />
+    <Content Include=".git\objects\03\10dd4310dfc4487e76359c15c2a85be116cf2e" />
+    <Content Include=".git\objects\03\4dbbbf019eca77f6a7ea6be80c47cd9d653ab4" />
+    <Content Include=".git\objects\03\b7e524e31c9e23d6445521f94ec9b25d7814eb" />
+    <Content Include=".git\objects\04\119191309ed4785071c085bd8158383ffe5ae8" />
+    <Content Include=".git\objects\04\53f42e62f72f9927964c1438212a6d6130e86c" />
+    <Content Include=".git\objects\05\01fcbad980ea35144ce03ced39916ac5d81618" />
+    <Content Include=".git\objects\05\b6c22d3d9b9064ba6fa9701ccc4e9cdfe0ea2c" />
+    <Content Include=".git\objects\08\ea2e30dd2200c3c639e7f4e57179a147581f3c" />
+    <Content Include=".git\objects\09\d509d0c205591953baa7d1cdf9c1ed64855e82" />
+    <Content Include=".git\objects\0a\e3de50864d93c1f79a4e659641a5d248bca2bb" />
+    <Content Include=".git\objects\0b\407bc030547b89a71db73796212b640ffc6feb" />
+    <Content Include=".git\objects\0b\b63b5d3456d4ca7321e09e8da22f32769950fb" />
+    <Content Include=".git\objects\0b\c804202beb3cf856ddb746d07efe95491c41f8" />
+    <Content Include=".git\objects\0c\6bb9842c08281acca1c491e499b76557772a2a" />
+    <Content Include=".git\objects\0c\e06284fcb442d2a984f0a14e9ca09b25afbef6" />
+    <Content Include=".git\objects\0d\0b53a6122f00e5593eca7b835c77a9ab953e99" />
+    <Content Include=".git\objects\0d\ed03f1f041badaed7421a4694033b5af8e0144" />
+    <Content Include=".git\objects\0e\02cb70daa79f3f993820f439f561bf76052f67" />
+    <Content Include=".git\objects\0e\156deb5f61d18f9e2ec5da4f6a8c94a5b4fb41" />
+    <Content Include=".git\objects\0f\4327e7f1fb1aea19027c2228120e104aaa56d9" />
+    <Content Include=".git\objects\0f\b0f10913ac03970a6428545a0f107a65909169" />
+    <Content Include=".git\objects\10\58d64192c411cc46073b0bae80c6c61f0a5bf5" />
+    <Content Include=".git\objects\10\c5d9cc6732c5da55b9d9a03366d0a673d49c91" />
+    <Content Include=".git\objects\11\e2d87c43be46e2655bb9451444740f0363b4a3" />
+    <Content Include=".git\objects\12\5c5be14225158b4883870583843563662aeacb" />
+    <Content Include=".git\objects\12\674b08b24c28c6e71d95c595e19c0e8a3b4224" />
+    <Content Include=".git\objects\12\ddec3ab17870070af8616e1d5e67beed61c545" />
+    <Content Include=".git\objects\13\70ad65fd64f53e025a31c290cb2e4aa13c39c2" />
+    <Content Include=".git\objects\13\acddc48f9a9a453944398ba65e863bd00b680a" />
+    <Content Include=".git\objects\14\032aabd85b43a058cfc7025dd4fa9dd325ea97" />
+    <Content Include=".git\objects\14\13fc609ab6f21774de0cb7e01360095584f65b" />
+    <Content Include=".git\objects\14\26a44a18bf40baaf52c108b041b31bc44a1811" />
+    <Content Include=".git\objects\14\693db7479460c20753ba8ca504ee4d4b1451f9" />
+    <Content Include=".git\objects\14\8339ff2fbb7eab64e51d3aa360316777f55504" />
+    <Content Include=".git\objects\15\7d7e42388423c5cc22fbf5b5bf54a830a1ef81" />
+    <Content Include=".git\objects\15\fcf8d2054db96c4263afee60860b4755fdefc9" />
+    <Content Include=".git\objects\16\fabe5b695b2645d0fced13c9da62e9d2f82957" />
+    <Content Include=".git\objects\17\0bd608f7fdf12827f69d31a7586fb490ba67d4" />
+    <Content Include=".git\objects\18\c90735021ea17ac0eed314afcafd35445e9de0" />
+    <Content Include=".git\objects\19\2efce5bad39f33cd1aaf929559a2b08efdbb87" />
+    <Content Include=".git\objects\19\e4e8a8a8cffb50d26e6244bfa3df448c3c58ab" />
+    <Content Include=".git\objects\1a\00937cecfab0abd398fe927cfea251722d8691" />
+    <Content Include=".git\objects\1a\1e5af2a1249626af9b1f4e442c4fdfad9396ae" />
+    <Content Include=".git\objects\1b\80be1533e5ff286fb06c020a5bbb190d02e5f5" />
+    <Content Include=".git\objects\1b\aa3629419a00dc85e1496f0d734355c064dacf" />
+    <Content Include=".git\objects\1c\3d368344591614e066d90cad68854a7120492e" />
+    <Content Include=".git\objects\1c\a64a30f5d8aeaa440f8c0d5a113fd2c31d1f6e" />
+    <Content Include=".git\objects\1c\be7d3aa921b65407390618a4c87134840297c8" />
+    <Content Include=".git\objects\1d\5f7ccac6254561228f37ffeb45c7fb265d7e3d" />
+    <Content Include=".git\objects\1e\4235c90c09bd737fce525ac27d44fc668d9f36" />
+    <Content Include=".git\objects\1e\87c4b3cad243e0ba48e60176cc1680efaf7eea" />
+    <Content Include=".git\objects\1f\a0fb8474cbd37a27660ff9265dcee6e16fe138" />
+    <Content Include=".git\objects\1f\ce9d708d0f7350ffc1ad4ad454af593bd6cffa" />
+    <Content Include=".git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <Content Include=".git\objects\20\402da5d3fb3bd00e25fef23a77d9fe130b538e" />
+    <Content Include=".git\objects\20\d2d62b4475b19b2ce64e9174ccc10e3cacab1b" />
+    <Content Include=".git\objects\21\fc9478f42bbdab1948cac239493661bbb959bc" />
+    <Content Include=".git\objects\22\35eb72ef447aca29cd9230020f6928f2e34bb3" />
+    <Content Include=".git\objects\22\c1bdc3f444a0a0134ac6791c9efe1dceba244a" />
+    <Content Include=".git\objects\22\ed3e64643fc192006530da1b993d648b244652" />
+    <Content Include=".git\objects\23\753e7d10fa3bb1ef9f6cf675484ed49a1c349d" />
+    <Content Include=".git\objects\25\01f9d5c0e38ce9f5db1829e58621a3fe142c9e" />
+    <Content Include=".git\objects\25\2486bcaf6c9675b57b59ae5ef996c5572b60fd" />
+    <Content Include=".git\objects\25\652119087128acaa4fd8074475dcc4f93a844f" />
+    <Content Include=".git\objects\25\9df6791fb5c9c556954b88c79f3cd25dc6d1ad" />
+    <Content Include=".git\objects\26\9d24c8f1105e6607bdb3cac7a8178ab8dbb092" />
+    <Content Include=".git\objects\27\db93c89045fef74ddfe6c8855f201eedc7df9b" />
+    <Content Include=".git\objects\28\305cbdeb246bda10664355e83379dee8c4ea65" />
+    <Content Include=".git\objects\28\476c23b17b571f8036de0735775f2e178271d1" />
+    <Content Include=".git\objects\28\757e0d06723c5ca7bf375a447ff1c685adc9af" />
+    <Content Include=".git\objects\28\a4d5fcc327efda9352a8a0995eb323d7010c41" />
+    <Content Include=".git\objects\28\b15d627f2620613a3c9aea3c524b47d23a29b9" />
+    <Content Include=".git\objects\29\88c27150737f6bf9905fc7adf8813c6e3eef09" />
+    <Content Include=".git\objects\29\d3a463810694a4782badef63fc90c07b730629" />
+    <Content Include=".git\objects\2a\27c2a8ec77be5162602419a613f8c2717e8974" />
+    <Content Include=".git\objects\2a\69f48c7f5badb22c914953a6b49d6fbf3df9ba" />
+    <Content Include=".git\objects\2a\da5e37a157ff93d0f84808c6cf5c03cabf005a" />
+    <Content Include=".git\objects\2b\66af0cdd2f1e55f7b9550c2e2103b0868168ab" />
+    <Content Include=".git\objects\2b\d5e9ca8aaabe35aba922250aeb296607d9c85f" />
+    <Content Include=".git\objects\2b\fe5f7031a2f78d0900f34c711045161a660ada" />
+    <Content Include=".git\objects\2c\163d2f35b684adced81908c2a5fcc5838f8411" />
+    <Content Include=".git\objects\2c\1d23d35df86b02db43785082ed6a23f3117cfa" />
+    <Content Include=".git\objects\2d\824c8fd7818a8be133bfc7b843d6e7f34e075a" />
+    <Content Include=".git\objects\2d\e62418c07c3ffa833543f484445dbfd0fe68d8" />
+    <Content Include=".git\objects\2e\617613b3a1d9503ab84591b08944ff35e9dd54" />
+    <Content Include=".git\objects\2f\0c1a12ed403e43b9cfbf7d0ff9b6d07857da86" />
+    <Content Include=".git\objects\2f\53dbf7b84394a4c156df3fc08fd588b9a30e13" />
+    <Content Include=".git\objects\2f\926236ba3ad444f82ca029f3b500d6424efdab" />
+    <Content Include=".git\objects\30\63af307bfd2484bd73ce8ce1009054262be223" />
+    <Content Include=".git\objects\30\aa04d37d1594e4711b0e7545e7701a0cbc83a6" />
+    <Content Include=".git\objects\30\bafc7fbf58880249173c0a061556c21b70c52c" />
+    <Content Include=".git\objects\31\dbb962e4684cfe9704578df5f10654b9af8f35" />
+    <Content Include=".git\objects\32\c0f32610406a3f454ff2630bf81db87f02f562" />
+    <Content Include=".git\objects\32\e1dd94708a74710f90b7c30bce93342fe457f9" />
+    <Content Include=".git\objects\33\03c7f461d9396414885d3e6cf1c0bb99e04436" />
+    <Content Include=".git\objects\33\3008e66515de1b9bb2004ca8a34688fa8420bd" />
+    <Content Include=".git\objects\33\653390e4f58f501264b71581bf587d7ebe0f11" />
+    <Content Include=".git\objects\33\cef405ad64d9f8f45ead6b84134735c1f84143" />
+    <Content Include=".git\objects\34\c829c5c62d376a33b1ffd87f20147d421b8b8f" />
+    <Content Include=".git\objects\35\f0711447aa1a11dcac1991702b93543cc166c3" />
+    <Content Include=".git\objects\36\f487862d2aad58c4de305074e243b83d9c54c1" />
+    <Content Include=".git\objects\36\f780ed5c555ef164cd03f200a2228c09f7a4d5" />
+    <Content Include=".git\objects\37\3635d00a38cd2c96f93782a87fdf552b20c341" />
+    <Content Include=".git\objects\37\38a8475cf09fe429bf80d6fa59a603b4ea6cee" />
+    <Content Include=".git\objects\37\479690d453e2fdbb08faf0ed21c774eb967f2c" />
+    <Content Include=".git\objects\38\0ab1e445e32672f6453c9f18cea7b6b42ffaec" />
+    <Content Include=".git\objects\38\3c62845d22915cb3ccbcdaa20489e56c1cc6a6" />
+    <Content Include=".git\objects\38\41ce8d2ac3a77f2155330f739667493958183a" />
+    <Content Include=".git\objects\38\a583bdc38ed6a527ba373eb03d203219389a1e" />
+    <Content Include=".git\objects\3a\f0b39b88381537f877be7a0478c6d4f9d4391f" />
+    <Content Include=".git\objects\3b\3ce0cadb09ce6ab8cce78eabd70477cd740d6e" />
+    <Content Include=".git\objects\3b\6a524663b99df06a3144a549f2aa8d6b846534" />
+    <Content Include=".git\objects\3b\91754dc07f5b5b182abcb5496c3a12ce252f1b" />
+    <Content Include=".git\objects\3b\f1aa3f08d7732a2925e62d34e80d08479bded6" />
+    <Content Include=".git\objects\3c\3b98a72270038473093b38c7c10ec62d189d1b" />
+    <Content Include=".git\objects\3c\f751cd26866653c434139d9094949485367047" />
+    <Content Include=".git\objects\3c\fd59e9bc95ae8bcccb5d4d27a719a7e32a1e5e" />
+    <Content Include=".git\objects\3d\3317cf2e2063e6e0045dc0ab6a4641553dd02d" />
+    <Content Include=".git\objects\40\cf0792f7fa62f652f6f9a01cd2fd0fd89ce57d" />
+    <Content Include=".git\objects\40\e4bb96d9ee875f45aa36e876b746f0ae683d79" />
+    <Content Include=".git\objects\41\7aec3d07c857111c6eb92f86a7cd9348f27fcc" />
+    <Content Include=".git\objects\41\abdcf62e43cda636c6685e85543a58f1316a44" />
+    <Content Include=".git\objects\42\e813642f548966a05cbc40e4973428f38fb9d0" />
+    <Content Include=".git\objects\43\9fa4fa00256dbb7678d2e04aa7c95d808e526b" />
+    <Content Include=".git\objects\43\a5b4bef090401ba5efaafc612ded5ad8fc6da4" />
+    <Content Include=".git\objects\44\6e17e16fbf86579aa8a04fbff34782e554bd66" />
+    <Content Include=".git\objects\44\9176023bd169fd1836ca96a603ad5db1ccd2b5" />
+    <Content Include=".git\objects\45\36c355d09f233cbddfaa7f8b651cd4266400e6" />
+    <Content Include=".git\objects\45\e0d98da9cbcdb3db9d0ad39a686e23ac0e0cd6" />
+    <Content Include=".git\objects\46\0295bfd3ca2fe2c071342e5ddefb02121f1746" />
+    <Content Include=".git\objects\46\9759583d1aa58199382b8112892e7c108ad6a5" />
+    <Content Include=".git\objects\47\07c70480e2e9c9b3ed5e1a2f75672fabbf23bb" />
+    <Content Include=".git\objects\47\1f174a374c186501895f08f4663bffb591937d" />
+    <Content Include=".git\objects\47\2826bec64b7062a4cb93558401d6fb481eaf35" />
+    <Content Include=".git\objects\47\41473faacae3e82c723df8b79059ec0b37a374" />
+    <Content Include=".git\objects\48\0094f72bcf1fc5787cbe59df1be27e7d7073e3" />
+    <Content Include=".git\objects\48\d3803623227c9b6f1d86f79c17aa1086c322b3" />
+    <Content Include=".git\objects\48\e4d495afe0bcd53e4e1f1bb22e200b20a4b0df" />
+    <Content Include=".git\objects\49\1156adf8234a5aca08dd3141fb0726eec55815" />
+    <Content Include=".git\objects\49\a31c86153fb6b0a4fdd354826a0481caef12ec" />
+    <Content Include=".git\objects\4a\cd71dd0a4517a54ff5f3a035c0d3038027d287" />
+    <Content Include=".git\objects\4a\d1db1493be81743224873cef0f68af9316ba50" />
+    <Content Include=".git\objects\4b\103f4028ead3f431c65889080b4ead5098ca67" />
+    <Content Include=".git\objects\4b\2d9e8440b9c3ed0fbccac1a3afaa7b3372fde8" />
+    <Content Include=".git\objects\4b\b198fcb2a603d74bf65677602f49aec42c4085" />
+    <Content Include=".git\objects\4c\2d8f3aba531e2f94ec855795a4c1e3cbd9e415" />
+    <Content Include=".git\objects\4c\9a28a2128cbf6ba972215736d75210359c60e4" />
+    <Content Include=".git\objects\4c\a0aa68ebaed9fcfb731fcd57cf35d280315fa6" />
+    <Content Include=".git\objects\4c\cc4b1dab321e4938291faa00500a9e21277ad5" />
+    <Content Include=".git\objects\4d\399a55e5f8510efec4b93cbccaad84b3109031" />
+    <Content Include=".git\objects\4e\32f85b1affe1890ce328f6858f242dce35f06e" />
+    <Content Include=".git\objects\4f\83a4085daa375c5f985ed2643d240af4550b0e" />
+    <Content Include=".git\objects\50\839c56c120baaca45efeb4f30cf88cbd7b06d6" />
+    <Content Include=".git\objects\51\662b2f030494e879e836f8d217216b33017fca" />
+    <Content Include=".git\objects\52\8760dd4446d62d55e641f260d1fa73f523fd5f" />
+    <Content Include=".git\objects\52\90d589a76e35381dc9ca4536b6f1004b6b14cf" />
+    <Content Include=".git\objects\54\6f8bdb876c0c013461925da8c92b218d6785b4" />
+    <Content Include=".git\objects\54\7d9f5bdeedb399546ca150942ce5c167fd57fc" />
+    <Content Include=".git\objects\55\ccb0fe185ce02561b57df16c568b674b60bd0a" />
+    <Content Include=".git\objects\55\e3d56218a6a8949344dbfb078f66eaf92a549b" />
+    <Content Include=".git\objects\56\0fc47cba0f28dc95ae0dc53a710f1c9fae8aa4" />
+    <Content Include=".git\objects\56\3243fe246f37ea378ac39bb4c6623df4fdb288" />
+    <Content Include=".git\objects\56\3646a67dd8e6c8c9cce45d5446449babfd5262" />
+    <Content Include=".git\objects\56\c2636a2ad75c307271f0f978598560f0e71242" />
+    <Content Include=".git\objects\57\238a83bb03c4eba9fa31d8f0b53be721669c19" />
+    <Content Include=".git\objects\57\61ee688fc6d2927bfc3bb38df92f356243fbd0" />
+    <Content Include=".git\objects\57\d836b1b9aa74f123f88b26a88acce932a86170" />
+    <Content Include=".git\objects\57\e8b2e475d66846218245e26c6b7d2744d14c72" />
+    <Content Include=".git\objects\58\c7b030dd51111ca052ac3b641dd731a56d3395" />
+    <Content Include=".git\objects\58\e98937c944a6e336edb1513790155819f3c46b" />
+    <Content Include=".git\objects\59\35ac4d0c60188b259f0c15a81cec28574ce51d" />
+    <Content Include=".git\objects\59\a3d21e1298df108095f809e6a35389d0a9a39f" />
+    <Content Include=".git\objects\59\d808aaf53f7f5fca551b715e609a1d2820ff44" />
+    <Content Include=".git\objects\59\e066664cc55ab4be460ffdcf0b7073de65c38b" />
+    <Content Include=".git\objects\5a\3007f10e571944e1259121feb21fc909c85824" />
+    <Content Include=".git\objects\5a\6ac94277a6964b9c873e3e53e8bbedf8c6e252" />
+    <Content Include=".git\objects\5a\84d69b874c185e9dd005d99a7e72e34d16b15d" />
+    <Content Include=".git\objects\5a\a714425b63d20253abff39e2c05e711b995b14" />
+    <Content Include=".git\objects\5a\fd3e27b94744f1afa2e5f8e232dc2035c7dfb3" />
+    <Content Include=".git\objects\5b\46f7569c76271d8f1850d08a2f2a889fabb121" />
+    <Content Include=".git\objects\5b\96335ff6a02021199d731eaa19ccadd1dc8af8" />
+    <Content Include=".git\objects\5b\be6518dfd4241f5893dd0ca087441a703bf573" />
+    <Content Include=".git\objects\5c\842ceb486287ba4972b53375ce4310347f6d58" />
+    <Content Include=".git\objects\5c\da552ce889cfea27e32c153ccb34ffa7b1ab21" />
+    <Content Include=".git\objects\5d\75106e042b7a66107a0d44abea854895076733" />
+    <Content Include=".git\objects\5e\7d6e93a91d6c52cb8bbb80087c2b3e0eb865c9" />
+    <Content Include=".git\objects\5f\64989281ee56f9056d72b2a739e71533304c05" />
+    <Content Include=".git\objects\60\7fa3beb77892bf29367747037d5080e11f885a" />
+    <Content Include=".git\objects\60\b887c7979eedc67585728d0e4546d0bddfaffa" />
+    <Content Include=".git\objects\61\8ca5c6b76f93a0a0f079a0f73d5582531ba550" />
+    <Content Include=".git\objects\62\cbe3dbcee0204c0300949d4e5b23035f3a0092" />
+    <Content Include=".git\objects\62\f9abb32856c4ee9e9a121856e24d0cdcfe8458" />
+    <Content Include=".git\objects\63\330c7f385d9d7e846a9666db6ab5fb440d186e" />
+    <Content Include=".git\objects\63\a6f9dd7377c6c47da50383fc7d67fb0442c232" />
+    <Content Include=".git\objects\64\14063053aadde2869923a4fa8c195a2a53ef7f" />
+    <Content Include=".git\objects\64\539b54c3751a6d9adb44c8e3a45ba5a73b77f0" />
+    <Content Include=".git\objects\64\7b5c67fd42bc64c683f5ff9d9a7d2cea23e406" />
+    <Content Include=".git\objects\64\c04587295b478ded1a6d18914a6ac0ad474b99" />
+    <Content Include=".git\objects\64\d4325239292d8db2c3e36f228385a344efc5dd" />
+    <Content Include=".git\objects\64\da7fedbf1453fa7db47e7ef8c6156dfd7dd49e" />
+    <Content Include=".git\objects\65\243f8e48d1f49afa1c539a65a1abf3ad699d43" />
+    <Content Include=".git\objects\65\9adaa461fefb0388bf223b7ece239f832deccd" />
+    <Content Include=".git\objects\65\e3a00188be599a31de235fc00b4e6e63601457" />
+    <Content Include=".git\objects\67\4b3645c4beae5dc5b493cc175b83ab4bf6106b" />
+    <Content Include=".git\objects\67\e10c465d8de1a48a6790829126dad4de0fc110" />
+    <Content Include=".git\objects\68\ab92eba6d7f3d5dee0808fd58d90723fd7ad85" />
+    <Content Include=".git\objects\68\f816759272a0a80dcf22dcbdd27f657c1ffbe4" />
+    <Content Include=".git\objects\69\6c03fead1e59f322c6bf697c00fce717d8a820" />
+    <Content Include=".git\objects\69\7b2df0088c14cc84d1734f8bf611ea4205c35f" />
+    <Content Include=".git\objects\6a\1ca0ce2496b9913d2cd4b4a48279bd1a40b49f" />
+    <Content Include=".git\objects\6b\c4dc58dfd69d752aed2f47d0dd0c90e88bfbd3" />
+    <Content Include=".git\objects\6c\aef673eae6b1c4adcd507f9323387de8fc77ac" />
+    <Content Include=".git\objects\6d\6ecc4e1871fa56fefd18207adacef6178211d4" />
+    <Content Include=".git\objects\6e\42e5bc9fbaa7a8a8cf3db43d66c430d8dadda6" />
+    <Content Include=".git\objects\6e\a5d8f6ce41bb2fe2196e468046f22e741c175e" />
+    <Content Include=".git\objects\6f\60353b9c6d603d8e9b07dbb3346f7d87dc4b61" />
+    <Content Include=".git\objects\6f\d262503971b4f275cc547fe75ecfbda116ac73" />
+    <Content Include=".git\objects\6f\ef98736a64348d81b180859647d966b6073f0a" />
+    <Content Include=".git\objects\70\c6f324adf58eed0fb0e0ac7b2cb4388a007125" />
+    <Content Include=".git\objects\70\d0cdabb9b3d743b55211dd2c5db24d0f24f64e" />
+    <Content Include=".git\objects\71\0094e7dd71a0eae372ce477f612dd10436ed6b" />
+    <Content Include=".git\objects\71\13963e43075a9c1b390ec447ada7b5b6c51ea6" />
+    <Content Include=".git\objects\71\501259da6119b1345e47c26c5fdd274fb0efff" />
+    <Content Include=".git\objects\71\e801b53e7d693d1e00f3e58779e499b11c2ed9" />
+    <Content Include=".git\objects\72\bfc9538c07cf67863940820cd75e3794520f2b" />
+    <Content Include=".git\objects\73\618ae5f3e5f128bf02ead589a9099c2a43b433" />
+    <Content Include=".git\objects\73\f5298394483947e1ce966c01630a32de962f4b" />
+    <Content Include=".git\objects\74\9c2d3144974ddce5625a243f226f944dde2a4f" />
+    <Content Include=".git\objects\74\f02a703df447a879ed814693041ec226cfbfe5" />
+    <Content Include=".git\objects\76\98a1ae5bf39349db227e7ab4b12fe42813b31f" />
+    <Content Include=".git\objects\76\cb3e153124980c46ab2c2694741d4034125645" />
+    <Content Include=".git\objects\76\d116b7c7a1ea0eab92b12fc4fdb3f3fed268c8" />
+    <Content Include=".git\objects\77\3ad95c56f8321eb4901736930024ec517a948a" />
+    <Content Include=".git\objects\77\509717e2a2322bdde1b92e3ec1188228386d16" />
+    <Content Include=".git\objects\77\c25bdd9c4ca02d6a6282fd4bf7c35d8cbcde5c" />
+    <Content Include=".git\objects\78\2d10fda665109bf07c75b6d14421a7c1252966" />
+    <Content Include=".git\objects\79\2f695bdd8d929234b1d6ffe8c0cd2f96d0d2d8" />
+    <Content Include=".git\objects\79\cf7af2f687c17279e71389c84340a13c5175fc" />
+    <Content Include=".git\objects\7a\8d071d424d8f30c27ab283acfed5eb4a63256c" />
+    <Content Include=".git\objects\7c\4df4ac937d1318fe0441c6c2d4ba218736b7ac" />
+    <Content Include=".git\objects\7c\c06622896161e7bfc9ef3780769a004f4fc1fa" />
+    <Content Include=".git\objects\7d\3eb13cd886158fb6bb0797cc48dfe7076e4777" />
+    <Content Include=".git\objects\7e\c837777e95d5e8c0c869d7b73b0b28177cd57d" />
+    <Content Include=".git\objects\7e\cf893f00875129cb884be1e06dbd0e5278c796" />
+    <Content Include=".git\objects\7f\46e9afdac60ea6d05f2acc10c0f6cb0d5d6ff8" />
+    <Content Include=".git\objects\7f\cddfe7d6a186dd9fa8145545bf717ed4c5b606" />
+    <Content Include=".git\objects\80\796ea771e0a4fe1376aeacee52e9a553ee7d1f" />
+    <Content Include=".git\objects\81\4cf786c1c8c2c770be9436984b6d88161561e6" />
+    <Content Include=".git\objects\82\d65a7a8af5b5c432f52c1cce425d987ccf6b6e" />
+    <Content Include=".git\objects\83\12ccd8436a3b64181779888f75773cd3cfb590" />
+    <Content Include=".git\objects\83\66267752a57c1d2a719ce35eca62e10e59bbc0" />
+    <Content Include=".git\objects\84\6220aef99afa5520d7746584c76c7a5f1e1518" />
+    <Content Include=".git\objects\84\a2d6f411fa9e83237520df11dc2babd78db8ba" />
+    <Content Include=".git\objects\84\c13781350e08b90eb68e6b875d82f64e36dfb1" />
+    <Content Include=".git\objects\85\eb8716c279291e7384163dfd4a4989acc212d6" />
+    <Content Include=".git\objects\86\e1b583e21108935f5e10c37a95a2d93b34f4e5" />
+    <Content Include=".git\objects\87\4fbd4c3847d07346025dab4cd22e11f03feab3" />
+    <Content Include=".git\objects\89\3dcbc1356968040d2b0df4e215266f36ec8631" />
+    <Content Include=".git\objects\89\cfe6f0f68ecf5aefbb25cbb65f29b8a2104160" />
+    <Content Include=".git\objects\8a\50aa255e103e39abf7404b8aa6da587553b501" />
+    <Content Include=".git\objects\8a\f920932a2c5de3009787d1ec60b63433fe2708" />
+    <Content Include=".git\objects\8b\4271d84b1942ba032cbbebe31612443784997a" />
+    <Content Include=".git\objects\8b\a376efe597baf677b56a14557e7d09d0558b4c" />
+    <Content Include=".git\objects\8b\d0e3ae41e9bdfd7e54f1f4b369d4e5a70ee33d" />
+    <Content Include=".git\objects\8b\e3baacdcabe707f7872c99d43c494e8615b00d" />
+    <Content Include=".git\objects\8c\920e025502a9359ba26891521efa6db2003b51" />
+    <Content Include=".git\objects\8d\fe88ba75d8b04a8f833f0ebf8e7a0385472161" />
+    <Content Include=".git\objects\8e\0c76bee0913dd255753373b346871a7b37866f" />
+    <Content Include=".git\objects\8e\674f43992765d16482af5bef4809eeb87f1c6e" />
+    <Content Include=".git\objects\8f\1db97f60e550fb1b0eb08cea2e7f32de6ef01d" />
+    <Content Include=".git\objects\8f\bd3af6b2833155d71d5a5dc2f7c5558e21c001" />
+    <Content Include=".git\objects\8f\c97ef8a78a7d5afa3c1eca3f05b4899927f20d" />
+    <Content Include=".git\objects\90\25af280ccefd9a50badd1a039d456a1168d609" />
+    <Content Include=".git\objects\90\3400da48f01c0ae932c7603662222625cb4e23" />
+    <Content Include=".git\objects\90\3465c852f908ed226d1e1096b8be4e891c4458" />
+    <Content Include=".git\objects\90\f8aab365ab47a50ebf98e424e6a08e28149afa" />
+    <Content Include=".git\objects\91\35acb2c2169af6479e71b6028c3e91e24f077e" />
+    <Content Include=".git\objects\93\d62aaab97730e30c789827b9afad08b78bc75c" />
+    <Content Include=".git\objects\94\91a2fda28342ab358eaf234e1afe0c07a53d62" />
+    <Content Include=".git\objects\94\9d09738fd98c2a8fe6c54d733834db3c82a59f" />
+    <Content Include=".git\objects\94\e7ae99146f4ad62bdbf32ddb11aec51f12a5d1" />
+    <Content Include=".git\objects\94\fb5490a2ed10b2c69a4a567a4fd2e4f706d841" />
+    <Content Include=".git\objects\95\2a2ebf01b90906f9cbfbdb7138be91131a4507" />
+    <Content Include=".git\objects\96\31b37887e553edd8315edf4d28989a9de2d699" />
+    <Content Include=".git\objects\96\9daae788f366573486c43616d3796bff6a5a90" />
+    <Content Include=".git\objects\97\047a86cec6264aea9e274d07f1fdffd1ae490e" />
+    <Content Include=".git\objects\97\43753e68ba1d1811f63850d811decf690d11d4" />
+    <Content Include=".git\objects\97\f797ec0cc2e2a4fe59b8522d944d62d264040d" />
+    <Content Include=".git\objects\98\9a891e45947bc2445e73052df99d10023432d0" />
+    <Content Include=".git\objects\98\b09b07ade2026c6eb4972a0b3523c75c06dad9" />
+    <Content Include=".git\objects\99\26742c8431102f67e354e893334c4e59dd4447" />
+    <Content Include=".git\objects\99\e8689c02a615e108ab3eb3c32e842194eee60b" />
+    <Content Include=".git\objects\9a\be1b5b4c829eeaa6c1d8d4be45bfc6b5a235eb" />
+    <Content Include=".git\objects\9a\d4c5ba6f653a7f804351af53d44969fb45e881" />
+    <Content Include=".git\objects\9b\10f0acba283c32a2b12d7894d92933df21908c" />
+    <Content Include=".git\objects\9b\17a8d7fc9c20ef4277d79bcd0f53f67e2fc77b" />
+    <Content Include=".git\objects\9b\3fe6e263412b986c2f61a90f5c6ae8fcad2542" />
+    <Content Include=".git\objects\9b\94ffa1334b918e1322cb8a5e0b13f6649caf18" />
+    <Content Include=".git\objects\9b\9ac003a22466e91fd959bfd8506fb8b248e3e1" />
+    <Content Include=".git\objects\9c\1013c581db611559ea5faff77580fe91e8405e" />
+    <Content Include=".git\objects\9c\7d6982d9a1408f24278ed38458bcf4722f365f" />
+    <Content Include=".git\objects\9d\1d24ab8f2d34449e0e23574f201e09ca877167" />
+    <Content Include=".git\objects\9d\d6aeb468178d959c8bb4239d82f20f823236ea" />
+    <Content Include=".git\objects\9d\d905a65c3448e54905bf21ec96620dd1c8e201" />
+    <Content Include=".git\objects\9e\026e754231d10f05ec0de7f291623fdab11edc" />
+    <Content Include=".git\objects\9e\612858f802245ddcbf59788a0db942224bab35" />
+    <Content Include=".git\objects\9e\c6ca31f7356dcb1a277f9dd9e6701cbdad8258" />
+    <Content Include=".git\objects\9e\d9ce817414bea208f91fbefdb7de7e70cec09c" />
+    <Content Include=".git\objects\a0\81190ccd6aa5f1b07d21bbe65964358e25731d" />
+    <Content Include=".git\objects\a0\fe2126b08d87693f51feed01bcbe7165fc562a" />
+    <Content Include=".git\objects\a1\0d1cc48fc612251ae7889372413afa23173cf0" />
+    <Content Include=".git\objects\a1\0fbfaed546c3229fae99bc24417718c32c0f35" />
+    <Content Include=".git\objects\a1\c07fd803b5fc9c54f44e31123ae4fa11e134b0" />
+    <Content Include=".git\objects\a2\854c0aae345e19ead6931016a5435c79be3884" />
+    <Content Include=".git\objects\a3\0e388f8d2a6bc4eeb571f4cf21d1bd42f9c4c0" />
+    <Content Include=".git\objects\a3\22aaf05463a73cac4226dcf8cf33ab9292b2a4" />
+    <Content Include=".git\objects\a3\37a8a2d0321a472eb226aa86f19bae2e8b5f6e" />
+    <Content Include=".git\objects\a3\a799985c43bc7309d701b2cad129023377dc71" />
+    <Content Include=".git\objects\a3\d04f02af951e58a9eaa9adfd9a6470485112cb" />
+    <Content Include=".git\objects\a4\53aa96d559c85e69641619396b520a2b1bcba2" />
+    <Content Include=".git\objects\a5\474192926eb6f2e52388a6ba653331d68a67ca" />
+    <Content Include=".git\objects\a6\2db9e714dce33daf08adf2da9569e7f3bd2852" />
+    <Content Include=".git\objects\a6\a37422ec5efeae756f0fc176c064a8826b8ffc" />
+    <Content Include=".git\objects\a7\78f2d4b35ee4fc783fe098485dec7565136153" />
+    <Content Include=".git\objects\a8\17f7945a83fa911effa70d67dca1be50549a5c" />
+    <Content Include=".git\objects\a8\8b6c6e3f1ae81c37d05452d3dab82e30b9655a" />
+    <Content Include=".git\objects\aa\5772f260935db005b3b5d4ee8ced85dbc3f9af" />
+    <Content Include=".git\objects\aa\8b91be582b0c1e2293e6acb95cb74a67c1ab5b" />
+    <Content Include=".git\objects\aa\abce8392529ef00f059869f3cc949ee28d3b43" />
+    <Content Include=".git\objects\ab\5b798e6372337bc96703593a6e5c56eba811e3" />
+    <Content Include=".git\objects\ab\ccafd4ff06459bc6451177a3535af3070c9744" />
+    <Content Include=".git\objects\ac\4281ae008a8aee20039e2246a0c5c67c5c5bc3" />
+    <Content Include=".git\objects\ad\57d0c7165588c5305a2abcd015d3303e2aaa9e" />
+    <Content Include=".git\objects\ad\956cf78a46ce6f85275b42671f13c4d5585fa4" />
+    <Content Include=".git\objects\ad\fa55ae3b8ff69d882813b47fb72f29f587874c" />
+    <Content Include=".git\objects\ae\14ab1bddf784a820a2a71a30008a93fa7e1759" />
+    <Content Include=".git\objects\ae\c507d74bfb3e8265d9735afe31d3252a97af96" />
+    <Content Include=".git\objects\af\151cfe3feac4541ed4855e7801a52a5728e739" />
+    <Content Include=".git\objects\af\5bc7c5a10b9d6d57cb641aeec752428a07f0ca" />
+    <Content Include=".git\objects\b1\d556aa6aa33b373fbcdd28ef5224949fae75bf" />
+    <Content Include=".git\objects\b2\1d403e1ca6ffa645e8ee418de3dde2676fe27c" />
+    <Content Include=".git\objects\b2\b99c64cef5ce8b313d88bb7bcb31bacb3f0770" />
+    <Content Include=".git\objects\b3\0c83eb7b11cdcb7c2eb579f6b95779ade4705b" />
+    <Content Include=".git\objects\b3\aae9b7876d59d2d15c21b51f92470e798a23b3" />
+    <Content Include=".git\objects\b4\4d08d206fec07232ad52c792e6b90d025b8734" />
+    <Content Include=".git\objects\b6\45433e0242126e714341007fc80db929927340" />
+    <Content Include=".git\objects\b6\bd9219a0a98d87654141891703a5b992c0715e" />
+    <Content Include=".git\objects\b6\ede1fe14162c7e75ff65ef90fd49bfa364f8b2" />
+    <Content Include=".git\objects\b7\4eabec91d1063036eff50d6f2c385c22ac37e3" />
+    <Content Include=".git\objects\b7\6c61825454982b8e475ea058ff6ec691a35d44" />
+    <Content Include=".git\objects\b7\7c3a66d5946c74dcd02318537917c5af140172" />
+    <Content Include=".git\objects\b8\71f195fadb6ccff675abdd44116a6ed905ffe8" />
+    <Content Include=".git\objects\b8\ae1149bbfa10fc082518e6ed847f5714ecaf9d" />
+    <Content Include=".git\objects\b9\3a4953fff68df523aa7656497ee339d6026d64" />
+    <Content Include=".git\objects\b9\5b5596f1bb73998b2bf9581acac2cf9c31b6c1" />
+    <Content Include=".git\objects\ba\108d6f4bbf7f4c06593e27f157e84dfd7dfac2" />
+    <Content Include=".git\objects\bb\6bce15e7d8d08a2512845a83e687bd5a2a8793" />
+    <Content Include=".git\objects\bb\d2a11122e57e7116df9e495815494c6abc2b6d" />
+    <Content Include=".git\objects\bb\ed07c238755a36cb80bd606cf5a5bc0be016b4" />
+    <Content Include=".git\objects\bc\a6971ff17e9d56fb845da06892280e2bf5a81a" />
+    <Content Include=".git\objects\be\a69d49d058075b21be3f44712b052bf6beffb8" />
+    <Content Include=".git\objects\bf\b4c5505b5c338af4f5185228a1f91f3d03f23f" />
+    <Content Include=".git\objects\c0\0f2e9093163cc9de7b11272fb18c6ecd32d3db" />
+    <Content Include=".git\objects\c0\5b426c80278af1ebc5b03f0fa14c14eebd2b0c" />
+    <Content Include=".git\objects\c0\edf448024855e729af18548111abc2b0cec161" />
+    <Content Include=".git\objects\c1\e6bd44184ae1dab5029eb98e33b8b0170e0871" />
+    <Content Include=".git\objects\c3\874d38f38ac4ae31b32b84657aa2395af435c8" />
+    <Content Include=".git\objects\c3\e0f583c09d0cf292a5ff9522b6aee17b68d86f" />
+    <Content Include=".git\objects\c3\ed39d3a736bdf7eb90bfbd3281711250776603" />
+    <Content Include=".git\objects\c4\058395b367d4d19a798aa7b4d2eb8f8bf53372" />
+    <Content Include=".git\objects\c4\91e131b14b9f9e2a0555843c262f80b3cbba06" />
+    <Content Include=".git\objects\c4\a68be23fc43324451e87b58bdd8d2c6935b348" />
+    <Content Include=".git\objects\c5\8a4cabff7c22efdf762a18aeab51b6044a4a8e" />
+    <Content Include=".git\objects\c6\450717f920d6c95da6fdb0af8f602b3f1be5b4" />
+    <Content Include=".git\objects\c8\48b9c266ab9b09db3f5a2c34b6ee6a5b13ec2e" />
+    <Content Include=".git\objects\c8\7c36e88ea30aeb3906c2b92d08bbd6ed86028f" />
+    <Content Include=".git\objects\c8\9d8145bcf5961f2e7643a45437e2a10c39387f" />
+    <Content Include=".git\objects\c8\cb09f5a8b1ab276582b7827e11b10e958dbe15" />
+    <Content Include=".git\objects\c9\630c63302756b05562e9aa763610494b2c9f1b" />
+    <Content Include=".git\objects\c9\937f8186795bab7d1d6fc5068068ffe1f6644e" />
+    <Content Include=".git\objects\c9\fdd8a1502fda301682e907afde86bc450da10f" />
+    <Content Include=".git\objects\ca\45b1bb9d362b5fef0c3067d74bdb2538f500b8" />
+    <Content Include=".git\objects\ca\ac3e61254729e2afa39052bdd1121b80ad883a" />
+    <Content Include=".git\objects\cb\1c8f97a5367afa824350511423bcc78f66d747" />
+    <Content Include=".git\objects\cb\3382284eec847fbad34647b7c76a86f963b18c" />
+    <Content Include=".git\objects\cb\60091e2455f35551a0d33946214f86b95add27" />
+    <Content Include=".git\objects\cc\599a168d45d07f03a2c4a0e26f4e3810e651b8" />
+    <Content Include=".git\objects\cd\56a128642de2431ee9d88b33b74828e547a360" />
+    <Content Include=".git\objects\cf\8b9dea1380fd362ecba4428a8f04cabe401fcc" />
+    <Content Include=".git\objects\d1\4ce3df5060c85a816889e9a517140c2d0e3f24" />
+    <Content Include=".git\objects\d1\d4932ebc252a03aa8f8025508a3b3e24fe9d46" />
+    <Content Include=".git\objects\d3\5fc701bbb63e0f64429317a9604f853bd60994" />
+    <Content Include=".git\objects\d3\64dbfe3b157bf80faae093728e9f601fd1a7e1" />
+    <Content Include=".git\objects\d3\92bf62b54250446f920bfed939f2f58ee094c3" />
+    <Content Include=".git\objects\d3\fa8bb154f7806e0fe07b7badba5dd9eed3ba1c" />
+    <Content Include=".git\objects\d6\1c9c99af0c6c50a8686a6333a678df0ba5fea3" />
+    <Content Include=".git\objects\d6\a7ec9c78db2639df771a77aa7848e24552830f" />
+    <Content Include=".git\objects\d7\42c5a369df9d9c8bc88a124c62220dbf7365cd" />
+    <Content Include=".git\objects\d7\712aaf178326511b84c9be85967b18cc17241b" />
+    <Content Include=".git\objects\d7\8ec0702e272ed3da60edc14137e6cb7e0db6a5" />
+    <Content Include=".git\objects\d7\e86c9b085d91c970ec946bc29f00db42107438" />
+    <Content Include=".git\objects\d8\2fcb2fafd3a32055754d80bba01eeea26f0cd5" />
+    <Content Include=".git\objects\d8\614b3708a02a34f9679d9191ae2fdecf3f7a4d" />
+    <Content Include=".git\objects\d9\d3bb94c805e743ae08944cfa7fe2c48630b910" />
+    <Content Include=".git\objects\db\7c4a774023181bcdc204dd8cde1e2408852c32" />
+    <Content Include=".git\objects\db\ad306e9c643f96cf86858cc25316ad938d318e" />
+    <Content Include=".git\objects\db\f290439eee8f7e42772fddcdf3a20a267e640a" />
+    <Content Include=".git\objects\dc\58589cd22484a31b46869feddc32e669a82d99" />
+    <Content Include=".git\objects\dc\eb3550727983a023d7b3aaa2c98a7cf4cb786f" />
+    <Content Include=".git\objects\de\03f98368142dd25afae8713281b15ab3bc267f" />
+    <Content Include=".git\objects\df\093cc54a2e6f5c8c0c056e58a2b9a6b369611c" />
+    <Content Include=".git\objects\df\655a53fdf0a3833a86d4c63fd5d4b2fc0538e6" />
+    <Content Include=".git\objects\df\a90fe8ff15c95a2acf86569d1f6e026c6043f4" />
+    <Content Include=".git\objects\e0\b8f80f39de9dd1bc00726a407fcf041a8f791c" />
+    <Content Include=".git\objects\e1\0ace2f506c6830e9afd325334d556fd9ba97b2" />
+    <Content Include=".git\objects\e1\5edef2c718c3e0f6050a1d4e6d749386296e0d" />
+    <Content Include=".git\objects\e1\9a248f9f6a90398bd2c5ca7ee3ae3a261fade4" />
+    <Content Include=".git\objects\e1\ba61a8055fcb18273f2468d335572204667b1f" />
+    <Content Include=".git\objects\e2\5a6ec2a781a55c8d700f8af31cf319ff715d21" />
+    <Content Include=".git\objects\e2\8e037cdb11b16879de108b1a0cb47e29d9b8fc" />
+    <Content Include=".git\objects\e2\9a70c802a11c9fdfbabdcecc5baefbb8aeb013" />
+    <Content Include=".git\objects\e2\d36c7ffcad2853745889420c94758b5f7cfca2" />
+    <Content Include=".git\objects\e3\64e83512dcd9c1a50bfe8431eb539fa2f542ca" />
+    <Content Include=".git\objects\e3\a9d8d31c816577c99ac0ed322fbc566831a07f" />
+    <Content Include=".git\objects\e4\8fea2191c9d94cf9d196931e1dac606b165c94" />
+    <Content Include=".git\objects\e4\91a1a696601ede64aa7a2bfeb03d01fecbc817" />
+    <Content Include=".git\objects\e4\9d95f33b851c4f0dce6fac4ca27b8b067fbaa7" />
+    <Content Include=".git\objects\e5\3683faa3369781ade1b9db7bd57c85c2ea02cb" />
+    <Content Include=".git\objects\e6\a27b5c36d7bd8e9e8697c184de1642a0cf6c4c" />
+    <Content Include=".git\objects\e7\e3c597f14fb4baea7d1a73c54c51c590d8d941" />
+    <Content Include=".git\objects\e8\f98dda4984b489e991961126bcdb5619392792" />
+    <Content Include=".git\objects\e9\13829a2cc705ddf2903d69e08cd286035aa5b5" />
+    <Content Include=".git\objects\e9\ca947a9bae16f696904360becc9b61974c9ae6" />
+    <Content Include=".git\objects\ea\33f76a772ae050a6477242cac663c00942f764" />
+    <Content Include=".git\objects\ea\be00d60f782669c9b8292923b5afb3e3cbc1e7" />
+    <Content Include=".git\objects\ea\f4d1b3726ffe0c12e4ab97379101efd1405054" />
+    <Content Include=".git\objects\eb\0a8b410f59eb8abcd21e588f1a7b718db3eebd" />
+    <Content Include=".git\objects\eb\894922d8aa9adfc3c7375b7676dfa78589145e" />
+    <Content Include=".git\objects\eb\b80c275deea9037cfff5e5be65b7ecfe057c78" />
+    <Content Include=".git\objects\ec\71f13e8f3230bda217f66c43861235541392c9" />
+    <Content Include=".git\objects\ec\7d26a319d744ab09ee3b3469e64a26bf5e9cbb" />
+    <Content Include=".git\objects\ec\8183cfbfac7140668799e90e1729f2cde5fe81" />
+    <Content Include=".git\objects\ec\f2636fd134c2d3772699f6d9a178038a36e774" />
+    <Content Include=".git\objects\ed\4a426a9b76d84bbd14be02984dd7ccb42c0632" />
+    <Content Include=".git\objects\ef\dec1eef5a6bb757b20d804e2c38faf6738507b" />
+    <Content Include=".git\objects\f0\d3a70ceaa69fb70811f58254dc738e0f939eac" />
+    <Content Include=".git\objects\f0\f114c28d4fb52146f6205192a81707bb8def96" />
+    <Content Include=".git\objects\f1\3949a3f2dca74ad2d96be5494bedc335d6503d" />
+    <Content Include=".git\objects\f1\8cac87a713a757ac914e0bd24023f2ac008119" />
+    <Content Include=".git\objects\f1\a12225cbfa11978d9b19803bef43c80ff2a591" />
+    <Content Include=".git\objects\f1\d55bbdfe53c6a664ced7ca297a5a828495ee79" />
+    <Content Include=".git\objects\f2\411f516b259db1338e3aa62d80d2daedfbf6a7" />
+    <Content Include=".git\objects\f2\79f55b71440880d57ad96f13e8e15eae5d7a45" />
+    <Content Include=".git\objects\f2\a470fe1503c1427fa4242928624fb0b2f039c3" />
+    <Content Include=".git\objects\f2\e4d92f7028cc4eccc14052777d114651d1726f" />
+    <Content Include=".git\objects\f3\3442e5c916da04b10fb4fc75c1f3b4a1c24466" />
+    <Content Include=".git\objects\f4\2a279744b9b7e8026e0b99e132492f0860e87a" />
+    <Content Include=".git\objects\f6\0dc33e279ecb326fe0fdb757e8114691844a25" />
+    <Content Include=".git\objects\f6\914accc790c67bd3674fb347c6dfae6279a838" />
+    <Content Include=".git\objects\f7\db36b73f577ca8a3f14a2f209a53856238d081" />
+    <Content Include=".git\objects\f9\05867ef3db56f21853be0945ce5a4b5bbad455" />
+    <Content Include=".git\objects\f9\d0c1d1a9d0c3aa6abb39c9b74f0bae2d506400" />
+    <Content Include=".git\objects\fa\8bda42b8a1f8c3da0f486149336f990e3c9862" />
+    <Content Include=".git\objects\fb\11dfe24a6c564cb7ddf8bc96703ebb121df1e7" />
+    <Content Include=".git\objects\fb\65705a854ba5ba42f0eddd5366a512d6dce6ba" />
+    <Content Include=".git\objects\fc\1014db781124279ace9a3d6256f3e0f011e516" />
+    <Content Include=".git\objects\fc\2be1e784c54c2d576d5eb089d18cda9ee3882a" />
+    <Content Include=".git\objects\fc\717eef507b39454187da1f84595823675b6fcf" />
+    <Content Include=".git\objects\fc\ab41554ad7f471346b76aff336d329fde68722" />
+    <Content Include=".git\objects\fe\8c363786cfc962c7535537b1324610b883153c" />
+    <Content Include=".git\objects\fe\c7f3c3c54b4b3eb0f7e62a092a7ce07181225a" />
+    <Content Include=".git\objects\ff\1e855c83d0ab2800ed1ebbd25809a8e761e3c0" />
+    <Content Include=".git\ORIG_HEAD" />
+    <Content Include=".git\refs\heads\master" />
+    <Content Include=".git\refs\remotes\origin\master" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DemoModel.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DemoModel.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\DemoModel.ssdl" />
+    <Content Include="obj\Debug\TryLogin.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\TryLogin.csproj.CopyComplete" />
+    <Content Include="obj\Debug\TryLogin.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\TryLogin.csprojAssemblyReference.cache" />
+    <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\.signature.p7s" />
+    <Content Include="packages\bootstrap.3.4.1\bootstrap.3.4.1.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\EntityFramework.6.4.4\.signature.p7s" />
+    <Content Include="packages\EntityFramework.6.4.4\buildTransitive\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.4.4\buildTransitive\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.4.4\build\EntityFramework.DefaultItems.props" />
+    <Content Include="packages\EntityFramework.6.4.4\build\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.4.4\build\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props" />
+    <Content Include="packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets" />
+    <Content Include="packages\EntityFramework.6.4.4\content\net40\App.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.4.4\content\net40\App.config.transform" />
+    <Content Include="packages\EntityFramework.6.4.4\content\net40\Web.config.install.xdt" />
+    <Content Include="packages\EntityFramework.6.4.4\content\net40\Web.config.transform" />
+    <Content Include="packages\EntityFramework.6.4.4\EntityFramework.6.4.4.nupkg" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\EntityFramework6.PS2.psd1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\EntityFramework6.PS2.psm1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\EntityFramework6.psd1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\EntityFramework6.psm1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\init.ps1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\install.ps1" />
+    <Content Include="packages\EntityFramework.6.4.4\tools\netcoreapp3.0\any\ef6.runtimeconfig.json" />
+    <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="packages\jQuery.3.4.1\jQuery.3.4.1.nupkg" />
+    <Content Include="packages\jQuery.3.4.1\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\uninstall.ps1" />
+    <Content Include="packages\jQuery.Validation.1.17.0\.signature.p7s" />
+    <Content Include="packages\jQuery.Validation.1.17.0\jQuery.Validation.1.17.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Microsoft.AspNet.Mvc.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\Microsoft.AspNet.Razor.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Microsoft.AspNet.WebPages.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\.signature.p7s" />
+    <Content Include="packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.11\Microsoft.jQuery.Unobtrusive.Validation.3.2.11.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
+    <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.js" />
+    <Content Include="Scripts\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.js" />
+    <Content Include="Scripts\DataTables\buttons.colVis.min.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.js" />
+    <Content Include="Scripts\DataTables\buttons.flash.min.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.js" />
+    <Content Include="Scripts\DataTables\buttons.foundation.min.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.js" />
+    <Content Include="Scripts\DataTables\buttons.html5.min.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.js" />
+    <Content Include="Scripts\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\buttons.print.js" />
+    <Content Include="Scripts\DataTables\buttons.print.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.js" />
+    <Content Include="Scripts\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.js" />
+    <Content Include="Scripts\DataTables\dataTables.material.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.js" />
+    <Content Include="Scripts\DataTables\dataTables.select.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.js" />
+    <Content Include="Scripts\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.js" />
+    <Content Include="Scripts\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.js" />
+    <Content Include="Scripts\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.js" />
+    <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
+    <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\fontawesome.js" />
+    <Content Include="Scripts\fontawesome.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\navbar.js" />
+    <Content Include="Scripts\sweetalert2.all.js" />
+    <Content Include="Scripts\sweetalert2.all.min.js" />
+    <Content Include="Scripts\sweetalert2.js" />
+    <Content Include="Scripts\sweetalert2.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Manage\UserRegistration.cshtml" />
+    <Content Include="Views\Manage\UsersList.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Offices\Create.cshtml" />
+    <Content Include="Views\Offices\Delete.cshtml" />
+    <Content Include="Views\Offices\Details.cshtml" />
+    <Content Include="Views\Offices\Edit.cshtml" />
+    <Content Include="Views\Offices\Index.cshtml" />
+    <Content Include="Views\Divisions\Create.cshtml" />
+    <Content Include="Views\Divisions\Delete.cshtml" />
+    <Content Include="Views\Divisions\Details.cshtml" />
+    <Content Include="Views\Divisions\Edit.cshtml" />
+    <Content Include="Views\Divisions\Index.cshtml" />
+    <Content Include="Views\Phonebooks\Create.cshtml" />
+    <Content Include="Views\Phonebooks\Index.cshtml" />
+    <Content Include="Views\User\SecondPage.cshtml" />
+    <Content Include="Views\Drafts\Index.cshtml" />
+    <Content Include="Views\Drafts\Create.cshtml" />
+    <Content Include="Views\Phonebooks\Edit.cshtml" />
+    <Content Include="Views\Manage\Edit.cshtml" />
+    <Content Include="Views\SingleDrafts\Index.cshtml" />
+    <Content Include="Views\SingleDrafts\Create.cshtml" />
+    <Content Include="Views\CgppDrafts\Index.cshtml" />
+    <Content Include="Views\Example\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Cgpp\" />
+    <Folder Include="Views\Phonebook\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12204</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44348/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('packages\Microsoft.TypeScript.MSBuild.4.6.4\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,113 @@
+﻿@model TryLogin.ViewModel.ManageVM
+@{
+    ViewBag.Title = "Edit";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+@Styles.Render("~/Content/css4")
+@Scripts.Render("~/bundles/modernizr")
+<html>
+<body>
+
+@using (Html.BeginForm("Edit","Manage",FormMethod.Post))
+{
+
+    <div class="agileheader">
+        <h1>Edit UserList</h1>
+    </div>
+
+    <div class="main-w3l">
+        <div class="w3layouts-main" style="height: auto !important; width: 90% !important;">
+
+                <div class="row"> 
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            <label>FullName </label>
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            <label>Address </label>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-9 tom">
+                            <label>Email Address </label>
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            @Html.DropDownListFor(d => d.Officeid, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control" })
+                            <label>OfficeName </label>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            <label>DivisionName </label>
+                            @Html.DropDownListFor(d => d.Divisionid, new SelectList(Model.DivisionList, "Id", "Name"), new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            <label>Username </label>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8 tom">
+                            <label>Password </label>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                       </div>
+                   </div>
+        </div>
+   </div>
+
+        <div style="padding: 2% 0;">
+            <button class="btn btn-primary" id="toastrSuccess">SAVE</button>
+        </div>
+   
+
+        @Html.HiddenFor(o => o.UserID)
+
+
+
+
+
+        <!--//main-->
+        <!--footer-->
+        <div class="footer-w3l">
+
+        </div>
+        <!--//footer-->
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    }
+
+
+    </body>
+</html>
+
+@section scripts{
+
+    <script type="text/javascript"></script>
+}

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TryLogin.Models.CgppOffice>
+
+@{
+    ViewBag.Title = "Display Office Sms Management System";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    body {
+        background: url(/images/2.jpg) no-repeat 100% 100%;
+    }
+</style>
+
+<div class="row officerow">
+    <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY OFFICE</h2>
+    <div class="container-fluid">
+        <thead>
+            <div class="row">
+                <div class="text-left " style="padding-bottom: 2%">
+                    <button class="btn btn-success" style="display: inline; float:right;" onclick="location.href = '@Url.Action("Create", "Offices")' ">ADD OFFICE    <span class="fa fa-building" style="color:red"></span></button>
+
+                </div>
+            </div>
+            <div class="row tabledes">
+                <table class="table table-border" id="draftList">
+                    <thead style="background-color: #56575B">
+                    <th style="font-family:Cambria;display:none;">
+                        ID <span class="fa fa-building" style="color:yellow"></span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        OFFICE NAME <span class="fa fa-building" style="color:yellow"></span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        ACTION <span class="fa fa-floppy-o" style="color:yellow">   </span>
+                    </th>
+</thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td style="display:none">@user.Id</td>
+                    <td>@user.Name</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = user.Id }, new { @class = "btn btn-success fa fa-pencil-square", style = "color:black" })
+                        @Html.ActionLink("Delete", "Delete", new { id = user.Id }, new { @class = "btn btn-primary fa fa-trash-o" })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<link href="~/Content/sweetalert/sweetalert2.css" rel="stylesheet" />
+
+
+@section scripts {
+ 
+    <script src="~/Scripts/sweetalert2.js"></script>
+    B
+    <script>
+        $(document).ready(function () {
+            $('#draftList').dataTable({
+
+                "order":[[0,"desc"]]
+            });
+            document.body.style.color = '#dd3e3e';
+            toastr.success('LOADING SUCCESS');
+        });
+
+             @*var strValue = "@((string)ViewBag.mssg)";
+        if(strValue !== null && strValue !==  '') {
+            swal("", strValue, "success");
+        }*@
+
+
+    </script>
+}

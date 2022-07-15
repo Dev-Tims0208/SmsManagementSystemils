@@ -1,0 +1,122 @@
+﻿@model TryLogin.ViewModel.DraftVM
+@{
+    ViewBag.Title = "Create Message Sms Management System";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+@Styles.Render("~/Content/css7")
+@Scripts.Render("~/bundles/modernizr")
+
+@*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
+<body style="height: 100vh;">
+  
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Smart Login Form Responsive Widget Template:: W3layouts</title>
+        <!-- Meta tag Keywords -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+        <script type="application/x-javascript">
+             addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Meta tag Keywords -->
+        <!-- css files -->
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
+        <!-- online-fonts -->
+        <!--//online-fonts -->
+        <body>
+            <!--header-->
+            <div class="agileheader">
+                <h1 style="font-family:serif">SMS CREATE MESSAGE</h1>
+            </div>
+            @using (Html.BeginForm("Save", "Drafts"))
+            {
+                <!--//header-->
+                <!--main-->
+                <div class="main-w3l">
+                    <div class="w3layouts-main" style="height: auto !important; background: rgb(0 0 0 / 34%);">
+                        <h2> Sms Create</h2>
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <div class="col-md-2 tom">
+                                        <label>Message</label> 
+                                    </div>
+
+                                        @Html.TextAreaFor(u => u.msg, new { @class =  " message", required = "required", @placeholder = "Enter a Message Here" })
+                                    </div>
+                                </div> 
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" style="color: black;background-color:yellow; font-family:'Courier New';" onclick="location.href =                   '@Url.Action("Create", "Phonebooks")' ">ADD PHONE#</button>
+
+
+                                        <div class="col-md-2 tom">
+                                            <div class="addphonenum">
+                                                <div class="row ">
+
+
+                                                </div>
+
+                                            </div>
+                                            <label>Send To </label>
+
+                                        </div>
+                                        <div class="scrolllamg">
+                                            <select name="sendTo" id="MultipleDropdown" multiple="multiple" class="form-control" required="required">
+                                                @foreach (var phone in Model.Phonebooklist)
+                                                {
+                                                    <option value="@phone.CellphoneNum">    @phone.CellphoneNum    |     @phone.FullName</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="row">
+
+
+                                <div class="clear"></div>
+
+                                @Html.HiddenFor(o => o.draftId)
+                                <button class="btn btn-danger" id="toastrSuccess">Save</button>
+                            </div>
+                        </form>
+                   
+                    </div>
+                </div>
+                <!--//main-->
+                <!--footer-->
+                <div class="footer-w3l">
+                 
+                </div>
+                <!--//footer-->
+            }
+         @section scripts{
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $("#MultipleDropdown").chosen();
+             width: "100%"
+            //$("#toastrSuccess").click(function () {
+
+            //    toastr.success("Created Successfully");
+            //});
+        });
+
+
+
+    </script>
+}
+
+
+
+
+   </body>
+
+</html>

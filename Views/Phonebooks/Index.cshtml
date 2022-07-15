@@ -1,0 +1,107 @@
+﻿@model IEnumerable<TryLogin.Models.CgppPhonebook>
+@{
+    ViewBag.Title = "Display Phonebook Sms Management System";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
+
+<style>
+    body {
+        background: url(/images/2.jpg) no-repeat 100% 100%;
+    }
+</style>
+<div class="row phonebookrow" style="margin-left: -160PX; padding-left: 190px;">
+    <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY PHONEBOOKS</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="text-left " style="padding-bottom: 2%">
+                <button class="btn btn-success" style="display: inline; float:right" onclick="location.href = '@Url.Action("Create", "Phonebooks")' ">ADD PHONEBOOKS <span class="fa fa-phone-square" style="color:RED">   </span></button>
+
+
+            </div>
+            <div class="row phonebookdes">
+                <table class="table table-border" id="divisionList">
+                    <thead>
+                    <th style="font-family:Cambria; display:none">
+                        Id <br /> <span class="fa fa-sort-numeric-asc" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        CELLPHONE NUMBER <span class="fa fa-phone-square" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        FULLNAME <br /><span class="fa fa-user" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        POSITION  <br />   <span class="fa fa-arrow-circle-o-up" style="color:yellow"></span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        REMARKS <br /> <span class="fa fa-map-marker" style="color:yellow">   </span>
+                    </th>
+
+                    <th style="font-family:Cambria">
+                        DATE ADDED <br /> <span class="fa fa-calendar" style="color:yellow">   </span>
+                    </th>
+                    @{
+                        if ((int)Session["Role_Id"] == 1)
+                        {
+                            <th style="font-family:Cambria">
+                                OFFICE NAME <br /><span class="fa fa-building" style="color:yellow">   </span>
+                            </th>
+                            <th style="font-family:Cambria">
+                                DIVISION
+                                NAME <br /><span class="fa fa-building-o" style="color:yellow">   </span>
+                            </th>
+                            <th style="font-family:Cambria">
+                                USERS<br /> NAME <br /><span class="fa fa-users" style="color:yellow">   </span>
+                            </th>
+                        }
+                    }
+
+
+                    <th style="font-family:Cambria">
+                        ACTION <br /><span class="fa fa-floppy-o" style="color:yellow">   </span>
+                    </th>
+                    </thead>
+                    <tbody>
+                        @foreach (var phonebook in Model)
+                        {
+                            <tr>
+                                <td style="display:none">@phonebook.PhoneId</td>
+                                <td>@phonebook.CellphoneNum</td>
+                                <td>@phonebook.FullName</td>
+                                <td>@phonebook.Position</td>
+                                <td>@phonebook.Remarks</td>
+                                <td>@phonebook.DateAdded</td>
+                                @{
+                                    if ((int)Session["Role_Id"] == 1)
+                                    {
+                                        <td>@(phonebook.OfficeId.HasValue ? phonebook.CgppOffice.Name : "")</td>
+                                        <td>@(phonebook.DivisionId.HasValue ? phonebook.CgppDivision.Name : "")</td>
+                                        <td>@(phonebook.UsersId.HasValue ? phonebook.User.Name : "")</td>
+                                    }
+                                }
+
+                                <td> @Html.ActionLink("Edit", "Edit", new { id = phonebook.PhoneId }, new { @class = "btn btn-success fa fa-pencil-square" })</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section scripts {
+        <script>
+            $(document).ready(function () {
+                $('#divisionList').dataTable({
+                    order: [[0, 'desc']],
+                });
+                document.body.style.color = '#dd3e3e';
+
+                toastr.success('LOADING SUCCESS');
+            })
+        </script>
+    }

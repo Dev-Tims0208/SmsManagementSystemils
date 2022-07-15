@@ -1,0 +1,95 @@
+﻿@model TryLogin.ViewModel.PhonebookVM
+@{
+    ViewBag.Title = "Create";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+@Styles.Render("~/Content/css6")
+@Scripts.Render("~/bundles/modernizr")
+<style>
+    .form {
+        background-color: black;
+        color: whitesmoke;
+        border: 6px solid black;
+        margin: 20px;
+        padding: 20px;
+        width: 350px;
+    }
+</style>
+@using (Html.BeginForm("Save", "Phonebooks"))
+{
+    <!--header-->
+    <div class="agileheader">
+        <h1>SMS PHONE NUMBER</h1>
+    </div>
+    <!--//header-->
+    <!--main-->
+    <div class="main-w3l">
+        <div class="w3layouts-main" style="height: auto !important; width: 90% !important;">
+            <h2>ADD Phone Number</h2>
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class=" tom">
+                                <label>Phone Number </label>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Phonebook.CellphoneNum, new { htmlAttributes = new { @class = "form-control", maxlength = "11", @type = "number", placeholder = "Enter a Number" } })
+                        @Html.ValidationMessageFor(m => m.Phonebook.CellphoneNum)
+
+
+                        <div class="form-group">
+                            <div class="tom">
+                                <label>FullName </label>
+                            </div>
+                        </div>
+                        @Html.TextBoxFor(u => u.Phonebook.FullName, new { @class = "form-control", required = "required" })
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="tom">
+                                <label>Position </label>
+                            </div>
+                        </div>
+                        @Html.TextBoxFor(u => u.Phonebook.Position, new { @class = "form-control", required = "required" })
+                        <div class="form-group">
+                            <div class="tom">
+                                <label>Remarks </label>
+                            </div>
+                        </div>
+                        @Html.TextBoxFor(u => u.Phonebook.Remarks, new { @class = "form-control", required = "required" })
+                        <div class="clear"></div>
+                        @Html.HiddenFor(o => o.Phonebook.PhoneId)
+                    </div>
+                </div>
+                <div style="padding: 2% 0;">
+                    <button class="btn btn-primary" id="toastrSuccess" style="background-color:yellow; color:black">SAVE</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!--//main-->
+    <!--footer-->
+    <div class="footer-w3l">
+
+    </div>
+    <!--//footer-->
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
+    </body>
+</html>
+
+@section scripts{
+
+    <script type="text/javascript">
+  
+    </script>
+}

@@ -1,0 +1,165 @@
+﻿@model TryLogin.Models.User
+
+@{
+    ViewBag.Title = "Create User Sms Management System";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
+ @Styles.Render("~/Content/css3")
+    @Scripts.Render("~/bundles/modernizr")
+<style>
+    body {
+        background: url('/images/2.jpg') no-repeat 100% 100% !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+    }
+</style>
+<br />
+<br />
+<br />
+    <!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>Full Screen Enroll Form Responsive Widget Template :: w3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Full Screen Enroll Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+          rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+
+
+<div class="row">
+    <div class="sub-main-w3" style="background: url('/images/2.jpg') no-repeat 100% 100%; background-size: cover; min-height: auto !important; padding-bottom: 20% !important">
+
+        <h3>SMS REGISTRATION</h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.Name)
+                <div class="pom-agile">
+                    <span class="fa fa-user"></span>
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Full Name" } })
+                </div>
+
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.Address)
+                <div class="pom-agile">
+                    <span class="fa fa-location-arrow"></span>
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { placeholder = "Your Address" } })
+                </div>
+
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.Gender)
+                <div class="pom-agile">
+                    <span class="fa fa-key"></span>
+                    Male @Html.RadioButtonFor(model => model.Gender, "Male")Female @Html.RadioButtonFor(model => model.Gender, "Female")
+                </div>
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.EmailID)
+                <div class="pom-agile">
+                    <span class="fa fa-envelope-o"></span>
+                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { placeholder = "Email Address" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.OfficeID)
+                <div class="pom-agile">
+                    <span class="fa fa-building"></span>
+                    @Html.DropDownList("OfficeID", new SelectList(ViewBag.Offices, "Id", "Name"), "Select Offices", htmlAttributes: new { @class = "form-control", @style= " border: 1px solid black;" })
+                </div>
+                @Html.ValidationMessageFor(model => model.CgppOffice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.DivisionID)
+                <div class="pom-agile">
+                    <span class="fa fa-building"></span>
+                    @Html.DropDownList("DivisionID", new SelectList(ViewBag.Division, "Id", "Name"), "Select Division", htmlAttributes: new { @class = "form-control", @style = " border: 1px solid black;" })
+                </div>
+                @Html.ValidationMessageFor(model => model.CgppDivision, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.UserName)
+                <div class="pom-agile">
+                    <span class="fa fa-users"></span>
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "UserName" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.Password)
+                <div class="pom-agile">
+                    <span class="fa fa-key"></span>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-style-agile">
+                @Html.LabelFor(model => model.RPassword)
+                <div class="pom-agile">
+                    <span class="fa fa-key"></span>
+                    @Html.EditorFor(model => model.RPassword, new { htmlAttributes = new { placeholder = "RetypePassword" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.RPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    </div>
+            <div class="form-style-agile">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        }
+    </div>
+</div>
+
+</html>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
