@@ -83,7 +83,7 @@ namespace TryLogin.Controllers
                 usersInDb.DateAdded = DateTime.Now;
                 usersInDb.Position = phonebook.Position;
                 usersInDb.Remarks = phonebook.Remarks;
-                usersInDb.CgppOffice.Name = phonebook.CgppOffice.Name;
+                usersInDb.CgppOffice.Name = phonebook?.CgppOffice.Name;
                 usersInDb.CgppDivision.Name = phonebook.CgppDivision.Name;
                 usersInDb.User.Name = phonebook.User.Name;
             }
