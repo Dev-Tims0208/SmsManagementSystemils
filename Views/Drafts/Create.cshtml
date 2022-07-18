@@ -50,8 +50,8 @@
                                 </div> 
                                 <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" style="color: black;background-color:yellow; font-family:'Courier New';" onclick="location.href =                   '@Url.Action("Create", "Phonebooks")' ">ADD PHONE#</button>
+                                    <div class="form-group" style="padding:15px;">
+                                        <button class="btn btn-primary" style="color: black;background-color:yellow; font-family:'Courier New';" onclick="location.href =                   '@Url.Action("Create", "Phonebooks")' ">ADD PHONE#<i class="fa fa-phone-square" style="color:red;"></i></button>
 
 
                                         <div class="col-md-2 tom">
@@ -73,8 +73,8 @@
                                                 }
                                             </select>
                                         </div>
-                                        <button type="button" class="chosen-toggle select" id="MultipleDropdown">Select all</button>
-                                        <button type="button" class="chosen-toggle deselect" id="MultipleDropdown">Deselect all</button>
+                                        <button type="button" class="chosen-toggle select" id="MultipleDropdown">SELECT ALL <i class="fa fa-check" style="color:green;"></i></button>
+                                        <button type="button" class="chosen-toggle deselect" id="MultipleDropdown">DESELECT ALL <i class="fa fa-times" style="color:red !important;"></i></button>
                                     </div>
                                 </div>
                             </div> 
@@ -84,7 +84,7 @@
                                 <div class="clear"></div>   
 
                                 @Html.HiddenFor(o => o.draftId)
-                                <button class="btn btn-danger" id="toastrSuccess">Save</button>
+                                <button  id="toastrSuccess" style="width: 120px; border-radius:20px; color:black;background-color:yellow; height:43px;">SAVE</button>
                             </div>
                         </form>
                    

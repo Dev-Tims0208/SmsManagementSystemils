@@ -36,9 +36,12 @@ namespace TryLogin.Controllers
                 return RedirectToAction("logout", "Account");
             }
             var drafts = Db.Drafts.ToList();
+            var offices = Db.CgppOffices.ToList();
             var vm = new GroupMessageVM()
             {
-                DraftList = drafts
+                DraftList = drafts,
+                OfficeList = offices
+                
             };
             return View("Create", vm);
         }
