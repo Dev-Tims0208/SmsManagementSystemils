@@ -1,0 +1,115 @@
+﻿@model TryLogin.ViewModel.GroupMessageVM
+@{
+    ViewBag.Title = "Create Phonebook Sms Management System";
+    Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
+}
+@Styles.Render("~/Content/css6")
+@Scripts.Render("~/bundles/modernizr")
+<style>
+    .form {
+        background-color: black;
+        color: whitesmoke;
+        border: 6px solid black;
+        margin: 20px;
+        padding: 20px;
+        width: 350px;
+    }
+</style>
+@using (Html.BeginForm("Save", "Drafts"))
+{
+    <!--header-->
+    <div class="agileheader">
+        <h1 style="font-family:serif">SMS GROUP NUMBER</h1>
+    </div>
+    <!--//header-->
+    <!--main-->
+    <div class="main-w3l">
+        <div class="w3layouts-main" style="height: 580px !important; width: 100% !important; padding: 84px; margin-left: 19px; margin: -26px; padding-top: 14px; ">
+            <h2> SMS GROUP NUMBER</h2>
+            <form action="#" method="post">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class=" sample">
+                            <label style="color: black; margin-left: -506px;"> OFFICE NAME </label>   <label class="fa fa-phone-square" style="color:yellow"> </label>
+                        </div>
+
+
+
+                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                        @*@Html.EditorFor(model => model.Draft.Sendto, new { htmlAttributes = new { @class = "form-control",placeholder = "Enter a Number", style = "border-color:black", onKeyUp = "this.value=commafyPhone(this.value);" } })
+                            @Html.ValidationMessageFor(m => m.Draft.Sendto)*@
+
+                        <div class="scrolllamg">
+                            <select class="form-control" multiple="multiple" id="Select"  required="required" data-placeholder="Select a Office Here">
+                                @*@foreach (var office in Model.OfficeList)
+                                {
+                                    <option value="@office.Name">    @office.Name    </option>
+                                }*@
+
+                            </select>
+
+                            <div class="clear"></div>
+                        </div>
+                        @Html.HiddenFor(o => o.Draft.draftID)
+                        @Html.AntiForgeryToken()
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="messagelabel">
+                        <br />
+                        <label>MESSAGE </label>  <label class="fa fa-commenting" style="color:yellow"> </label>
+                    </div>
+
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:30px;" })
+
+                <div style="padding: 2% 0;">
+                    <button class="btn btn-primary" id="toastrSuccess" style="background-color: yellow; color: black; width: 215px; border-radius:20px">CREATE</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!--//main-->
+    <!--footer-->
+    <div class="footer-w3l">
+
+
+    </div>
+
+
+}
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        function formatState(state) {
+            if (!state.id) {
+                return state.text;
+            }
+            var baseUrl = "/user/pages/images/flags";
+            var $state = $(
+                '<span><img src="' + baseUrl + '/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+            );
+            return $state;
+        };
+
+        $("#Select").select2({
+            templateResult: formatState
+        });
+    </script>
+}
+
+
