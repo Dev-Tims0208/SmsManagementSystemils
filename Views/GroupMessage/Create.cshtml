@@ -64,7 +64,7 @@
                                         </div>
 
                                         <div class="scrolllamg">
-                                            <select class="form-control" multiple="multiple" id="MultipleDropdown" name="Draft.sendTo" required="required" data-placeholder="Select a Office Here" >
+                                            <select class="chosen-container-single" id="MultipleDropdown" name="Draft.sendTo" required="required" data-placeholder="Choose a Office">
                                                 @foreach (var office in Model.OfficeList)
                                                 {
                                                     <option value="@office.Name">    @office.Name    </option>
@@ -72,6 +72,42 @@
 
                                             </select>
 
+                                        
+
+
+
+
+                                            <div class="wrapper">
+                                                <select id="parent_select"><option>----</option></select>
+                                                <select id="child_select"></select>
+                                            </div>
+
+                                            <script language="javascript" type="text/javascript">
+
+                                                //Sample only
+                                                 var mList = {
+                                                    OfficeofCityMayor: ['Bournville', 'Snickers', 'Twix', 'Ferrero Rocher', 'Dark Chocolate', 'Milk chocolate', 'White chocolate', 'Gianduja chocolate'],
+                                                    OfficeofCityViceMayor: ['Broccoli', 'Cabbage', 'Carrot', 'Cauliflower']
+                                                };
+
+                                                el_parent = document.getElementById("parent_select");
+                                                el_child = document.getElementById("child_select");
+
+                                                for (key in mList) {
+                                                    el_parent.innerHTML = el_parent.innerHTML + '<option>' + key + '</option>';
+                                                }
+
+                                                el_parent.addEventListener('change', function populate_child(e) {
+                                                    el_child.innerHTML = '';
+                                                    itm = e.target.value;
+                                                    if (itm in mList) {
+                                                        for (i = 0; i < mList[itm].length; i++) {
+                                                            el_child.innerHTML = el_child.innerHTML + '<option>' + mList[itm][i] + '</option>';
+                                                        }
+                                                    }
+                                                });
+
+                                            </script>
                                             <div class="clear"></div>
                                         </div>
 
@@ -99,17 +135,8 @@
 
                         $("#MultipleDropdown").chosen();
                         width: "100%"
-                    });
-                    $('select').chosen({ width: "300px" });
 
-                    $('.chosen-toggle').each(function (index) {
-                        console.log(index);
-                        $(this).on('click', function () {
-                            console.log($(this).parent().find('option').text());
-                            $(this).parent().find('option').prop('selected', $(this).hasClass('select')).parent().trigger('chosen:updated');
-                        });
                     });
-
 
                 </script>
             }
