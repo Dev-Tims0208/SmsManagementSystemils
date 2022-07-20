@@ -39,10 +39,16 @@ namespace TryLogin.Controllers
             {
                 return RedirectToAction("logout", "Account");
             }
+
+            ViewBag.Group = Db.CgppGroups.ToList();
             var phoneb = Db.CgppPhonebooks.ToList();
+
+            var group = Db.CgppGroups.ToList();
             var vm = new PhonebookVM()
             {
-                PhonebookList = phoneb
+                PhonebookList = phoneb,
+                GroupList = group
+
             };
             return View("Create", vm);
         }
@@ -65,11 +71,10 @@ namespace TryLogin.Controllers
             if (phonebook.PhoneId == 0)
             {
                 var loginid = (int)Session["LoginID"];
-   
+               
                 phonebook.OfficeId = Db.Users.FirstOrDefault(o => o.LoginID == loginid)?.OfficeID;
                 phonebook.DivisionId = Db.Users.FirstOrDefault(o => o.LoginID == loginid)?.DivisionID;
                 phonebook.UsersId = Db.Users.FirstOrDefault(o => o.LoginID == loginid)?.UserID;
-
                 phonebook.DateAdded = DateTime.Now;
                 Db.CgppPhonebooks.Add(phonebook);
             }
@@ -86,6 +91,7 @@ namespace TryLogin.Controllers
                 usersInDb.CgppOffice.Name = phonebook?.CgppOffice.Name;
                 usersInDb.CgppDivision.Name = phonebook.CgppDivision.Name;
                 usersInDb.User.Name = phonebook.User.Name;
+                usersInDb.CgppGroup.GroupName = phonebook.CgppGroup.GroupName;
             }
 
             Db.SaveChanges();

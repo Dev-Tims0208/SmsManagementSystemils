@@ -33,6 +33,13 @@
           <Property Name="DateAdded" Type="datetime" />
           <Property Name="PhonebooksId" Type="int" />
         </EntityType>
+        <EntityType Name="CgppGroups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="CgppOffices">
           <Key>
             <PropertyRef Name="Id" />
@@ -54,6 +61,7 @@
           <Property Name="OfficeId" Type="int" />
           <Property Name="DivisionId" Type="int" />
           <Property Name="UsersId" Type="int" />
+          <Property Name="GroupId" Type="int" />
         </EntityType>
         <EntityType Name="CgppRole">
           <Key>
@@ -435,6 +443,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CgppPhonebook_CgppGroups">
+          <End Role="CgppGroups" Type="Self.CgppGroups" Multiplicity="0..1" />
+          <End Role="CgppPhonebook" Type="Self.CgppPhonebook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CgppGroups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="CgppPhonebook">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CgppPhonebook_CgppOffices">
           <End Role="CgppOffices" Type="Self.CgppOffices" Multiplicity="0..1" />
           <End Role="CgppPhonebook" Type="Self.CgppPhonebook" Multiplicity="*" />
@@ -619,6 +639,7 @@
           <EntitySet Name="Broadcasters" EntityType="Self.Broadcasters" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CgppDivision" EntityType="Self.CgppDivision" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CgppDraft" EntityType="Self.CgppDraft" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CgppGroups" EntityType="Self.CgppGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CgppOffices" EntityType="Self.CgppOffices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CgppPhonebook" EntityType="Self.CgppPhonebook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CgppRole" EntityType="Self.CgppRole" Schema="dbo" store:Type="Tables" />
@@ -675,6 +696,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_CgppPhonebook_CgppDivision" Association="Self.FK_CgppPhonebook_CgppDivision">
             <End Role="CgppDivision" EntitySet="CgppDivision" />
+            <End Role="CgppPhonebook" EntitySet="CgppPhonebook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CgppPhonebook_CgppGroups" Association="Self.FK_CgppPhonebook_CgppGroups">
+            <End Role="CgppGroups" EntitySet="CgppGroups" />
             <End Role="CgppPhonebook" EntitySet="CgppPhonebook" />
           </AssociationSet>
           <AssociationSet Name="FK_CgppPhonebook_CgppOffices" Association="Self.FK_CgppPhonebook_CgppOffices">
@@ -810,6 +835,8 @@
           <NavigationProperty Name="CgppOffice" Relationship="Self.FK_CgppPhonebook_CgppOffices" FromRole="CgppPhonebook" ToRole="CgppOffices" />
           <NavigationProperty Name="User" Relationship="Self.FK_CgppPhonebook_User" FromRole="CgppPhonebook" ToRole="User" />
           <NavigationProperty Name="CgppDrafts" Relationship="ilsModel.FK_CgppDraft_CgppPhonebook" FromRole="CgppPhonebook" ToRole="CgppDraft" />
+          <Property Name="GroupId" Type="Int32" />
+          <NavigationProperty Name="CgppGroup" Relationship="ilsModel.FK_CgppPhonebook_CgppGroups" FromRole="CgppPhonebook" ToRole="CgppGroup" />
         </EntityType>
         <EntityType Name="CgppRole">
           <Key>
@@ -1506,6 +1533,11 @@
             <End Role="CgppPhonebook" EntitySet="CgppPhonebooks" />
             <End Role="CgppDraft" EntitySet="CgppDrafts" />
           </AssociationSet>
+          <EntitySet Name="CgppGroups" EntityType="ilsModel.CgppGroup" />
+          <AssociationSet Name="FK_CgppPhonebook_CgppGroups" Association="ilsModel.FK_CgppPhonebook_CgppGroups">
+            <End Role="CgppGroup" EntitySet="CgppGroups" />
+            <End Role="CgppPhonebook" EntitySet="CgppPhonebooks" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="FK_CgppDraft_CgppPhonebook">
           <End Type="ilsModel.CgppPhonebook" Role="CgppPhonebook" Multiplicity="0..1" />
@@ -1516,6 +1548,26 @@
             </Principal>
             <Dependent Role="CgppDraft">
               <PropertyRef Name="PhonebooksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CgppGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CgppPhonebooks" Relationship="ilsModel.FK_CgppPhonebook_CgppGroups" FromRole="CgppGroup" ToRole="CgppPhonebook" />
+        </EntityType>
+        <Association Name="FK_CgppPhonebook_CgppGroups">
+          <End Type="ilsModel.CgppGroup" Role="CgppGroup" Multiplicity="0..1" />
+          <End Type="ilsModel.CgppPhonebook" Role="CgppPhonebook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CgppGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="CgppPhonebook">
+              <PropertyRef Name="GroupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1567,6 +1619,7 @@
           <EntitySetMapping Name="CgppPhonebooks">
             <EntityTypeMapping TypeName="ilsModel.CgppPhonebook">
               <MappingFragment StoreEntitySet="CgppPhonebook">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
                 <ScalarProperty Name="CellNum" ColumnName="CellNum" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
@@ -1901,6 +1954,14 @@
                 <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
                 <ScalarProperty Name="DivisionID" ColumnName="DivisionID" />
                 <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CgppGroups">
+            <EntityTypeMapping TypeName="ilsModel.CgppGroup">
+              <MappingFragment StoreEntitySet="CgppGroups">
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

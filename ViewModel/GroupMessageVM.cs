@@ -15,5 +15,7 @@ namespace TryLogin.ViewModel
         public CgppOffice Office { get; set; }
         public IEnumerable<CgppPhonebook> PhonebookList { get; set; }
         public CgppPhonebook Phonebook { get; set; }
+        public IEnumerable<CgppGroup> GroupList { get; set; }
+        public CgppGroup Group { get; set; }
     }
 }

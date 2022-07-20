@@ -8,14 +8,14 @@ using TryLogin.ViewModel;
 
 namespace TryLogin.Controllers
 {
-    public class GroupMessageController : Controller
+    public class CgppGroupsController : Controller
     {
         ilsEntities Db = new ilsEntities();
         protected override void Dispose(bool disposing)
         {
             Db.Dispose();
         }
-        // GET: Phonebooks
+        // GET: CgppGroups
         public ActionResult Index()
         {
             if (Session["Role_Id"] == null)
@@ -37,11 +37,15 @@ namespace TryLogin.Controllers
             }
             var drafts = Db.Drafts.ToList();
             var offices = Db.CgppOffices.ToList();
+            var group = Db.CgppGroups.ToList();
+            var phone = Db.CgppPhonebooks.ToList();
             var vm = new GroupMessageVM()
             {
                 DraftList = drafts,
-                OfficeList = offices
-                
+                OfficeList = offices,
+                GroupList = group,
+                PhonebookList = phone,
+
             };
             return View("Create", vm);
         }
@@ -52,6 +56,7 @@ namespace TryLogin.Controllers
 
                 draft.Sendto = draft.Sendto;
                 draft.msg = draft.msg;
+
                 Db.Drafts.Add(draft);
             }
 

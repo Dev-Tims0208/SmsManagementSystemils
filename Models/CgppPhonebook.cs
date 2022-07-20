@@ -30,11 +30,13 @@ namespace TryLogin.Models
         public Nullable<int> OfficeId { get; set; }
         public Nullable<int> DivisionId { get; set; }
         public Nullable<int> UsersId { get; set; }
+        public Nullable<int> GroupId { get; set; }
     
         public virtual CgppDivision CgppDivision { get; set; }
         public virtual CgppOffice CgppOffice { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CgppDraft> CgppDrafts { get; set; }
+        public virtual CgppGroup CgppGroup { get; set; }
     }
 }
