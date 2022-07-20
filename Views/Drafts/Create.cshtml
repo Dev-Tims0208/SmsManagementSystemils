@@ -45,13 +45,13 @@
                                         <label>Message</label> 
                                     </div>
 
-                                        @Html.TextAreaFor(u => u.msg, new { @class =  " message", required = "required", @placeholder = "Enter a Message Here" })
+                                        @Html.TextAreaFor(u => u.msg, new { @class =  " message", required = "required", @placeholder = "Enter a Message Here", @style="font-size:24px;" })
                                     </div>
                                 </div> 
                                 <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <button class="btn btn-primary" style="color: black;background-color:yellow; font-family:'Courier New';" onclick="location.href =                   '@Url.Action("Create", "Phonebooks")' ">ADD PHONE#</button>
+                                    <div class="form-group" style="padding:15px;">
+                                        <button class="btn btn-primary" style="color: black;background-color:yellow; font-family:'Courier New';" onclick="location.href =                   '@Url.Action("Create", "Phonebooks")' ">ADD PHONE#<i class="fa fa-phone-square" style="color:red;"></i></button>
 
 
                                         <div class="col-md-2 tom">
@@ -66,23 +66,25 @@
 
                                         </div>
                                         <div class="scrolllamg">
-                                            <select name="sendTo" id="MultipleDropdown" multiple="multiple" class="form-control" required="required">
+                                            <select name="sendTo" id="MultipleDropdown" multiple="multiple" class="form-control" required="required" data-placeholder=" Enter a Phone Number Here">
                                                 @foreach (var phone in Model.Phonebooklist)
                                                 {
-                                                    <option value="@phone.CellphoneNum">    @phone.CellphoneNum    |     @phone.FullName</option>
+                                                    <option value="@phone.CellphoneNum" >    @phone.CellphoneNum    |     @phone.FullName</option>
                                                 }
                                             </select>
                                         </div>
+                                        <button type="button" class="chosen-toggle select" id="MultipleDropdown">SELECT ALL <i class="fa fa-check" style="color:green;"></i></button>
+                                        <button type="button" class="chosen-toggle deselect" id="MultipleDropdown">DESELECT ALL <i class="fa fa-times" style="color:red !important;"></i></button>
                                     </div>
                                 </div>
                             </div> 
                             <div class="row">
 
 
-                                <div class="clear"></div>
+                                <div class="clear"></div>   
 
                                 @Html.HiddenFor(o => o.draftId)
-                                <button class="btn btn-danger" id="toastrSuccess">Save</button>
+                                <button  id="toastrSuccess" style="width: 120px; border-radius:20px; color:black;background-color:yellow; height:43px;">SAVE</button>
                             </div>
                         </form>
                    
@@ -103,12 +105,16 @@
 
             $("#MultipleDropdown").chosen();
              width: "100%"
-            //$("#toastrSuccess").click(function () {
-
-            //    toastr.success("Created Successfully");
-            //});
         });
+      $('select').chosen({width: "300px"});
 
+$('.chosen-toggle').each(function(index) {
+console.log(index);
+    $(this).on('click', function(){
+    console.log($(this).parent().find('option').text());
+         $(this).parent().find('option').prop('selected', $(this).hasClass('select')).parent().trigger('chosen:updated');
+    });
+});
 
 
     </script>

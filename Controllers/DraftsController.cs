@@ -170,6 +170,14 @@ namespace TryLogin.Controllers
             var draft = Db.Drafts.ToList();
             var phone = Db.CgppPhonebooks.ToList();
 
+            //if user //Hide Select cellnumber
+            if ((int)Session["Role_Id"] == 2)
+            {
+                var sess_id = (int)Session["LoginID"];
+                var userID = Db.Users.FirstOrDefault(o => o.LoginID == sess_id)?.UserID;
+                phone = phone.Where(x => x.UsersId == userID).ToList();
+            }
+
 
 
             var vm = new DraftVM()

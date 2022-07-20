@@ -154,30 +154,38 @@ video{
     font-family: cursive;
 }
 .divrow {
-    margin-top: 28px;
+    margin-top: -13px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
-    width: 1023px;
-    padding-left: 114px;
-    padding-right: 46px;
+    width: 910px;
+   /* padding: 62px ;*/
+    padding-top: 50px;
     border-radius: 30px;
+    padding-left: 157px;
+    padding-right: 81px;
+    height: auto;
 }
 .officerow {
-    margin-top: 34px;
+    margin-top: -8px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
     width: 1000px;
-    padding-left: 133px;
-    padding-right: 63px;
+    padding: 105px;
+    padding-top: 50px;
     border-radius: 30px;
+    padding-left: 177px;
+    height: auto;
 }
 .phonebookrow {
+    margin-top: -8px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
-    width: 1170px;
-    padding: 85px;
-  
+    width: 1330px;
+    padding: 105px;
+    padding-top: 50px;
     border-radius: 30px;
+    padding-left: 177px;
+    height: auto;
 }
 .draftsrow {
     background-color: #1d1e22ed;
@@ -191,12 +199,16 @@ video{
 }
 
 .userlistrow {
+    margin-top: -8px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
-    width: 1340px;
-    padding-left: 94px;
-    padding-right: 209px;
-    border-radius: 37px;
+    width: 1363px;
+    padding: 154px;
+    padding-top: 50px;
+    border-radius: 30px;
+    padding-left: 102px;
+    height: auto;
+    padding-right: 148px;
 }
 .container.userto {
     margin-left: -237px;
@@ -355,4 +367,11 @@ video{
 .officenamelabel{
     /*margin-left:-266PX;
     color:black;*/
+}
+
+.chosen-container-single .chosen-single{
+    height: 40px !important;
+}
+.chosen-container-single .chosen-search input[type="text"]{
+    color:white !important;
 }

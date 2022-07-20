@@ -61,7 +61,7 @@
 
                 </div>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here" })
+                @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style="font-size:25px;" })
               
                 <div style="padding: 2% 0;">
                     <button class="btn btn-primary" id="toastrSuccess" style="background-color: yellow; color: black; width: 215px; border-radius:20px">CREATE</button>

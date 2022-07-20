@@ -57,7 +57,9 @@
                             </th>
                         }
                     }
-
+                    <th style="font-family:Cambria">
+                       GROUP NAME <br /> <span class="fa-object-group" style="color:yellow">   </span>
+                    </th>
 
                     <th style="font-family:Cambria">
                         ACTION <br /><span class="fa fa-floppy-o" style="color:yellow">   </span>
@@ -80,7 +82,9 @@
                                         <td>@(phonebook.DivisionId.HasValue ? phonebook.CgppDivision.Name : "")</td>
                                         <td>@(phonebook.UsersId.HasValue ? phonebook.User.Name : "")</td>
                                     }
+
                                 }
+                                <td>@(phonebook.GroupId.HasValue ? phonebook.CgppGroup.GroupName : "")</td>
 
                                 <td> @Html.ActionLink("Edit", "Edit", new { id = phonebook.PhoneId }, new { @class = "btn btn-success fa fa-pencil-square" })</td>
                             </tr>

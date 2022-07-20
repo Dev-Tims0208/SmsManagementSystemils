@@ -136,9 +136,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CgppDraftsController.cs" />
+    <Compile Include="Controllers\CgppGroupsController.cs" />
     <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\DraftsController.cs" />
-    <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OfficesController.cs" />
@@ -155,6 +155,9 @@
       <DependentUpon>SmsManagementConnection.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppDraft.cs">
+      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CgppGroup.cs">
       <DependentUpon>SmsManagementConnection.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppOffice.cs">
@@ -271,6 +274,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\DraftListVM.cs" />
     <Compile Include="ViewModel\DraftVM.cs" />
+    <Compile Include="ViewModel\GroupMessageVM.cs" />
     <Compile Include="ViewModel\ManageVM.cs" />
     <Compile Include="ViewModel\PhonebookListVM.cs" />
     <Compile Include="ViewModel\PhonebookVM.cs" />
@@ -1550,7 +1554,8 @@
     <Content Include="Views\SingleDrafts\Index.cshtml" />
     <Content Include="Views\SingleDrafts\Create.cshtml" />
     <Content Include="Views\CgppDrafts\Index.cshtml" />
-    <Content Include="Views\Example\Create.cshtml" />
+    <Content Include="Views\CgppGroups\Index.cshtml" />
+    <Content Include="Views\CgppGroups\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,5 +58,6 @@ namespace TryLogin.Models
         public virtual DbSet<tblStuffNumber> tblStuffNumbers { get; set; }
         public virtual DbSet<UnidentifiedNetwork> UnidentifiedNetworks { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<CgppGroup> CgppGroups { get; set; }
     }
 }
