@@ -61,6 +61,7 @@
           <Property Name="OfficeId" Type="int" />
           <Property Name="DivisionId" Type="int" />
           <Property Name="UsersId" Type="int" />
+          <Property Name="PhonebooksId" Type="int" />
           <Property Name="GroupId" Type="int" />
         </EntityType>
         <EntityType Name="CgppRole">
@@ -837,6 +838,7 @@
           <NavigationProperty Name="CgppDrafts" Relationship="ilsModel.FK_CgppDraft_CgppPhonebook" FromRole="CgppPhonebook" ToRole="CgppDraft" />
           <Property Name="GroupId" Type="Int32" />
           <NavigationProperty Name="CgppGroup" Relationship="ilsModel.FK_CgppPhonebook_CgppGroups" FromRole="CgppPhonebook" ToRole="CgppGroup" />
+          <Property Name="PhonebooksId" Type="Int32" />
         </EntityType>
         <EntityType Name="CgppRole">
           <Key>
@@ -1619,6 +1621,7 @@
           <EntitySetMapping Name="CgppPhonebooks">
             <EntityTypeMapping TypeName="ilsModel.CgppPhonebook">
               <MappingFragment StoreEntitySet="CgppPhonebook">
+                <ScalarProperty Name="PhonebooksId" ColumnName="PhonebooksId" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
                 <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
                 <ScalarProperty Name="CellNum" ColumnName="CellNum" />

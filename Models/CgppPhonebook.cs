@@ -31,6 +31,7 @@ namespace TryLogin.Models
         public Nullable<int> DivisionId { get; set; }
         public Nullable<int> UsersId { get; set; }
         public Nullable<int> GroupId { get; set; }
+        public Nullable<int> PhonebooksId { get; set; }
     
         public virtual CgppDivision CgppDivision { get; set; }
         public virtual CgppOffice CgppOffice { get; set; }
