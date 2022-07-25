@@ -154,16 +154,12 @@ video{
     font-family: cursive;
 }
 .divrow {
-    margin-top: -13px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
-    width: 910px;
-    /* padding: 62px ;*/
-    padding-top: 50px;
+    width: 1023px;
+    padding-left: 130px;
+    padding-right: 63px;
     border-radius: 30px;
-    padding-left: 157px;
-    padding-right: 81px;
-    height: auto;
 }
 .officerow {
     margin-top: -8px;
@@ -180,7 +176,7 @@ video{
     margin-top: -8px;
     border: 1px solid #CAC280;
     background-color: #1d1e22ed;
-    width: 1330px;
+    width: 1365px;
     padding: 105px;
     padding-top: 50px;
     border-radius: 30px;

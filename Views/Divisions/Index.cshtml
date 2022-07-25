@@ -9,77 +9,91 @@
         background: url(/images/2.jpg) no-repeat 100% 100%;
     }
 </style>
+
 @*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
 
 <body>
-<div class="row divrow">
-    <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY DIVISION</h2>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="text-left " style="padding-bottom: 2%">
-                <button class="btn btn-success" style="display: inline; float:right;" onclick="location.href = '@Url.Action("Create", "Divisions")' ">ADD DIVISION   <span class="fa fa-building-o" style="color:red">  </span></button>
-
-            </div>
-        </div>
-        <body>
-
+    <div style="margin-left:-68px;">
+        <div class="row divrow">
+            <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY DIVISION</h2>
             <div class="container-fluid">
                 <div class="row">
                     <div class="text-left " style="padding-bottom: 2%">
+                        <button class="btn btn-success" style="display: inline; float:right;" onclick="location.href = '@Url.Action("Create", "Divisions")' ">ADD DIVISION   <span class="fa fa-building-o" style="color:red">  </span></button>
 
                     </div>
                 </div>
-                <div class="row">
-                    <table class="table divdes" id="draftList">
-                        <thead>
-                        <th style="font-family:Cambria;display:none;">
-                           ID <br /> <span class="fa fa-building-o" style="color:yellow">  </span>
-                        </th>
-                        <th style="font-family:Cambria">
-                            DIVISION NAME <br /> <span class="fa fa-building-o" style="color:yellow">  </span>
-                        </th>
-                        <th style="font-family:Cambria">
-                            OFFICE NAME <br /> <span class="fa fa-building" style="color:yellow">  </span>
-                        </th>
-                        <th style="font-family:Cambria">
-                            ACTION <br /> <span class="fa fa-floppy-o" style="color:yellow">  </span>
-                        </th>
-                        </thead>
-                        <tbody>
-                            @foreach (var user in Model)
+                <body>
 
-                            {
-                                <tr>
-                                    <td style="display:none;">@user.Id</td>
-                                    <td>@user.Name</td>
-                                    <td>@(user.OfficeId.HasValue ? user.CgppOffice.Name : "")</td>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="text-left " style="padding-bottom: 2%">
 
-                                    <td>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table class="table divdes" id="draftList">
+                                <thead>
+                                <th style="font-family:Cambria">
+                                    DIVISION NAME <br /> <span class="fa fa-building-o" style="color:yellow">  </span>
+                                </th>
+                                <th style="font-family:Cambria">
+                                    OFFICE NAME <br /> <span class="fa fa-building" style="color:yellow">  </span>
+                                </th>
+                                <th style="font-family:Cambria">
+                                    ACTION <br /> <span class="fa fa-floppy-o" style="color:yellow">  </span>
+                                </th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var user in Model)
 
-                                        @Html.ActionLink("Edit", "Edit", new { id = user.Id }, new { @class = "btn btn-success fa fa-pencil-square", style = "color:black" })
-                                        @Html.ActionLink("Delete", "Delete", new { id = user.Id }, new { @class = "btn btn-primary fa fa-trash-o" })
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                </div>
+                                    {
+                                        <tr>
+
+                                            <td>@user.Name</td>
+                                            <td>@(user.OfficeId.HasValue ? user.CgppOffice.Name : "")</td>
+
+                                            <td>
+
+                                                @Html.ActionLink("Edit", "Edit", new { id = user.Id }, new { @class = "btn btn-success fa fa-pencil-square", style = "color:black" })
+                                                @Html.ActionLink("Delete", "Delete", new { id = user.Id }, new { @class = "btn btn-primary fa fa-trash-o" })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
-  
+        </div>
+    </div>
+        @section scripts {
 
-    @section scripts {
-        <script>
-            $(document).ready(function () {
-                $('#draftList').dataTable({
+            <script>
+                $(document).ready(function () {
+                    $('#draftList').dataTable({
 
-                    "order": [[0, "desc"]]
+                        "order": [[0, "desc"]]
+                    });
+                    document.body.style.color = '#dd3e3e';
+                    toastr.success('LOADING SUCCESS');
                 });
-                document.body.style.color = '#dd3e3e';
-                toastr.success('LOADING SUCCESS');
+
+            </script>
+        }
+
+</body>
+
+
+
+@*<script>
+        $(document).ready(function () {
+            $('#draftList').dataTable({
+
+                "order": [[0, "desc"]]
             });
+            document.body.style.color = '#dd3e3e';
+            toastr.success('LOADING SUCCESS');
+        });
 
-        </script>
-    }
-
-    </body>
+    </script>*@

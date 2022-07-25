@@ -73,7 +73,7 @@
                             GroupName  <label class="fa fa-location-arrow" style="color:yellow"> </label>
                         </div>
 
-                        @Html.DropDownListFor(model => model.Phonebook.GroupId, new SelectList(Model.GroupList, "GroupId", "GroupName"), new { @class = "form-control", required = "required", @placeholder = "Enter a Message Here", id="GroupDrop" })
+                        @Html.DropDownListFor(model => model.Phonebook.GroupId, new SelectList(Model.GroupList, "GroupId", "GroupName"), new { @class = "form-control", required = "required", @placeholder = "Enter a Message Here", @style="border:1px solid black;" })
 
                         <div class="clear"></div>
                     </div>
@@ -108,7 +108,6 @@
 
             $("#MultipleDropdown").chosen();
             width: "100%"
-            $("#GroupDrop").chosen();
         });
 
     </script>

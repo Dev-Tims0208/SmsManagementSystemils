@@ -60,38 +60,51 @@
                                             <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
                                         </div>
                                         <div class="form-group">
-                                            <div class="scrolllamg">
-                                                <div class="row ">
-                                                    @Html.DropDownListFor(model => model.Phonebook.GroupId, new SelectList(Model.GroupList, "GroupId", "GroupName"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
-                                                </div>
-                                            </div>
+                                            @if (ViewBag.GroupsList != null)
+                                            {
+                                                @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupsList as SelectList, "--SELECT GROUPS--", new { @class = "form-control", @style="background-color:black;color:whitesmoke;" })
+                                            }
                                         </div>
-
 
                                         <div class="form-group">
-                                            <div class="scrolllamg">
-                                                <div class="row ">
-                                                    @Html.DropDownListFor(model => model.Phonebook.OfficeId, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
-                                                </div>
-                                            </div>
+                                            @Html.DropDownListFor(model => model.PhoneId, new SelectList(" "), "--SELECT CELLPHONE #--", new { @class = "form-control", @style = "background-color:black;color:whitesmoke;" })
                                         </div>
-                                        <div class="form-group">
-                                            <div class="scrolllamg">
-                                                <div class="row ">
-                                                    @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        @Html.HiddenFor(o => o.Draft.draftID)
-                                        <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
-                                             border-radius:20px;border:1px solid black;">
-                                            SAVE
-                                        </button>
                                     </div>
+                                    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $("#GroupId").change(function () {
+                                                $.get("/CgppGroups/GetPhonebookList", { GroupId: $("#GroupId").val() }, function (data) {
+                                                    $("#PhoneId").empty();
+                                                    $.each(data, function (index, row) {
+                                                        $("#PhoneId").append("<option value='" + row.PhoneId + "'>" + row.CellphoneNum + "</option>")
+                                                    });
+                                                });
+                                            })
+                                        });
+                                    </script>
+
+
+
+
+
+                                    @*<div class="form-group">
+            <div class="scrolllamg">
+                <div class="row ">
+                    @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+                                    @Html.HiddenFor(o => o.Draft.draftID)
+                                    <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
+                                             border-radius:20px;border:1px solid black;">
+                                        SAVE
+                                    </button>
+                                </div>
                             </div>
                         </form>
 
@@ -107,14 +120,10 @@
                 <!--//footer-->
             }
             @section scripts{
-             
+                        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
                 <script type="text/javascript">
 
-                    $(function () {
-
-
-
-                    });
+                
 
                 </script>
             }

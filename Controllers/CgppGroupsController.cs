@@ -47,8 +47,18 @@ namespace TryLogin.Controllers
                 PhonebookList = phone,
 
             };
+            List<CgppGroup> cgppGroupslist = Db.CgppGroups.ToList();
+            ViewBag.Groupslist = new SelectList(cgppGroupslist, "GroupId", "GroupName");
             return View("Create", vm);
+
         }
+        public JsonResult GetStateList(int GroupId)
+        {
+            Db.Configuration.ProxyCreationEnabled = false;
+            List<CgppPhonebook> PhoneList = Db.CgppPhonebooks.Where(x => x.PhoneId == GroupId).ToList();
+            return Json(PhoneList, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Save(Draft draft)
         {
             if (draft.draftID == 0)

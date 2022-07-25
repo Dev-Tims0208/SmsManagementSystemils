@@ -17,12 +17,15 @@ namespace TryLogin.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CgppGroup()
         {
+            this.CgppOffices = new HashSet<CgppOffice>();
             this.CgppPhonebooks = new HashSet<CgppPhonebook>();
         }
     
         public int GroupId { get; set; }
         public string GroupName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CgppOffice> CgppOffices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CgppPhonebook> CgppPhonebooks { get; set; }
     }

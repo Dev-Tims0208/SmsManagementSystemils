@@ -81,7 +81,7 @@ namespace TryLogin.Controllers
 
                 Db.SaveChanges();
 
-                return RedirectToAction("UserRegistration");
+                return RedirectToAction("UsersList");
             }
 
          
