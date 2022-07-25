@@ -24,8 +24,8 @@ namespace TryLogin.Models
     
         public virtual CgppDivision CgppDivision { get; set; }
         public virtual CgppOffice CgppOffice { get; set; }
+        public virtual CgppPhonebook CgppPhonebook { get; set; }
         public virtual Draft Draft { get; set; }
         public virtual User User { get; set; }
-        public virtual CgppPhonebook CgppPhonebook { get; set; }
     }
 }

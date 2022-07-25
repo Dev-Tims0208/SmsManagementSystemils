@@ -28,6 +28,7 @@ namespace TryLogin.Models
         public virtual DbSet<Broadcaster> Broadcasters { get; set; }
         public virtual DbSet<CgppDivision> CgppDivisions { get; set; }
         public virtual DbSet<CgppDraft> CgppDrafts { get; set; }
+        public virtual DbSet<CgppGroup> CgppGroups { get; set; }
         public virtual DbSet<CgppOffice> CgppOffices { get; set; }
         public virtual DbSet<CgppPhonebook> CgppPhonebooks { get; set; }
         public virtual DbSet<CgppRole> CgppRoles { get; set; }
@@ -58,6 +59,5 @@ namespace TryLogin.Models
         public virtual DbSet<tblStuffNumber> tblStuffNumbers { get; set; }
         public virtual DbSet<UnidentifiedNetwork> UnidentifiedNetworks { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<CgppGroup> CgppGroups { get; set; }
     }
 }

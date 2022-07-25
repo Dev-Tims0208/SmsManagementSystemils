@@ -17,5 +17,8 @@ namespace TryLogin.ViewModel
         public CgppPhonebook Phonebook { get; set; }
         public IEnumerable<CgppGroup> GroupList { get; set; }
         public CgppGroup Group { get; set; }
+        public int GroupId { get; set; }
+        public int PhoneId { get; set; }
+
     }
 }

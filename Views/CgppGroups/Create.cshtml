@@ -42,7 +42,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group ">
                                         <div class="col-md-2 tom">
-                                             <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
+                                            <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
                                         </div>
 
                                         @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:24px;" })
@@ -58,7 +58,6 @@
 
                                             </div>
                                             <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
-
                                         </div>
                                         <div class="form-group">
                                             <div class="scrolllamg">
@@ -72,14 +71,14 @@
                                         <div class="form-group">
                                             <div class="scrolllamg">
                                                 <div class="row ">
-                                                    @Html.DropDownListFor(model => model.Phonebook.OfficeId, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control", required = "required", @style= "background-color:black;color:white;font-family:sans-serif" })
+                                                    @Html.DropDownListFor(model => model.Phonebook.OfficeId, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="scrolllamg">
                                                 <div class="row ">
-                                                    @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId","CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
+                                                    @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
                                                 </div>
                                             </div>
                                         </div>
@@ -87,47 +86,14 @@
 
 
 
-                                        <div class="wrapper">
-                                            <select id="parent_select"><option>----</option></select>
-                                            <select id="child_select"></select>
-                                        </div>
-
-                                        <script language="javascript" type="text/javascript">
-
-                                            //Sample only
-                                            var mList = {
-                                                OfficeofCityMayor: ['Bournville', 'Snickers', 'Twix', 'Ferrero Rocher', 'Dark Chocolate', 'Milk chocolate', 'White chocolate', 'Gianduja chocolate'],
-                                                OfficeofCityViceMayor: ['Broccoli', 'Cabbage', 'Carrot', 'Cauliflower']
-                                            };
-
-                                            el_parent = document.getElementById("parent_select");
-                                            el_child = document.getElementById("child_select");
-
-                                            for (key in mList) {
-                                                el_parent.innerHTML = el_parent.innerHTML + '<option>' + key + '</option>';
-                                            }
-
-                                            el_parent.addEventListener('change', function populate_child(e) {
-                                                el_child.innerHTML = '';
-                                                itm = e.target.value;
-                                                if (itm in mList) {
-                                                    for (i = 0; i < mList[itm].length; i++) {
-                                                        el_child.innerHTML = el_child.innerHTML + '<option>' + mList[itm][i] + '</option>';
-                                                    }
-                                                }
-                                            });
-
-                                        </script>
-                                        <div class="clear"></div>
+                                        @Html.HiddenFor(o => o.Draft.draftID)
+                                        <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
+                                             border-radius:20px;border:1px solid black;">
+                                            SAVE
+                                        </button>
                                     </div>
-
-
-                                            @Html.HiddenFor(o => o.Draft.draftID)
-                                            <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
-                                             border-radius:20px;border:1px solid black;">SAVE</button>
-                                        </div>
-                                    </div>
-</form>
+                            </div>
+                        </form>
 
                     </div>
                 </div>
@@ -135,21 +101,19 @@
                 <!--footer-->
                 <div class="footer-w3l">
 
+
                 </div>
+             
                 <!--//footer-->
             }
             @section scripts{
-
+             
                 <script type="text/javascript">
 
                     $(function () {
 
-                        $("#GroupDropdown").chosen();
-                        width: "100%"
-                        $("#OfficeDropdown").chosen();
-                        width: "100%"
-                        $("#PhoneMumberDropdown").chosen();
-                        width: "100%"
+
+
                     });
 
                 </script>

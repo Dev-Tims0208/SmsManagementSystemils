@@ -53,26 +53,26 @@
                         <th>ID</th>
                         <th>MESSAGE</th>
                         <th>SEND</th>
-                        <th >OFFICE NAME</th>
-                        <th >DIVISION NAME</th>
+                        <th>OFFICE NAME</th>
+                        <th>DIVISION NAME</th>
                         <th>USERNAME</th>
                         <th>DATE ADDED</th>
                         <th>CELL N0.</th>
                         <th>CELL# OWNER</th>
                         @*@foreach (var user in Model)
-                        {
-                            <tr>
-                                <td>@user.draftId</td>
-                                <td>@user.msg</td>
-                                <td>@user.tag</td>
-                                <td>@user.oficeName</td>
-                                <td>@user.divisionName</td>
-                                <td>@user.username</td>
-                                <td>@user.Dateadded</td>
-                                <td>@user.cellphonenum</td>
-                                <td>@user.sendToName</td>
-                            </tr>
-                        }*@
+                            {
+                                <tr>
+                                    <td>@user.draftId</td>
+                                    <td>@user.msg</td>
+                                    <td>@user.tag</td>
+                                    <td>@user.oficeName</td>
+                                    <td>@user.divisionName</td>
+                                    <td>@user.username</td>
+                                    <td>@user.Dateadded</td>
+                                    <td>@user.cellphonenum</td>
+                                    <td>@user.sendToName</td>
+                                </tr>
+                            }*@
                     </tr>
                 </tfoot>
             </table>
@@ -93,7 +93,7 @@
                         </th>
                         <th> MESSAGE</th>
                         <th>SEND</th>
-                        <th class="hideThis" >OFFICENAME</th>
+                        <th class="hideThis">OFFICENAME</th>
                         <th class="hideThis">DIVISIONNAME</th>
                         <th>USERNAME</th>
                         <th>DATE ADDED</th>
@@ -113,19 +113,19 @@
                         <th>CELL N0.</th>
                         <th>CELL# OWNER</th>
                         @*@foreach (var user in Model)
-        {
-            <tr>
-                <td>@user.draftId</td>
-                <td>@user.msg</td>
-                <td>@user.tag</td>
-                <td>@user.oficeName</td>
-                <td>@user.divisionName</td>
-                <td>@user.username</td>
-                <td>@user.Dateadded</td>
-                <td>@user.cellphonenum</td>
-                <td>@user.sendToName</td>
-            </tr>
-        }*@
+                            {
+                                <tr>
+                                    <td>@user.draftId</td>
+                                    <td>@user.msg</td>
+                                    <td>@user.tag</td>
+                                    <td>@user.oficeName</td>
+                                    <td>@user.divisionName</td>
+                                    <td>@user.username</td>
+                                    <td>@user.Dateadded</td>
+                                    <td>@user.cellphonenum</td>
+                                    <td>@user.sendToName</td>
+                                </tr>
+                            }*@
                     </tr>
                 </tfoot>
             </table>
@@ -135,13 +135,15 @@
     </div>
     <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.15/css/dataTables.semanticui.min.css" rel="stylesheet" />
+    <link href="~/Content/DraftsDatatable/ajax.css" rel="stylesheet" />
+    <link href="~/Content/DraftsDatatable/dataTables.semanticui.min.css" rel="stylesheet" />
 
     @section scripts{
-        <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/dataTables.semanticui.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-
+       
+        <script src="~/Scripts/DraftsDatatableJS/datatable1.js"></script>
+        <script src="~/Scripts/DraftsDatatableJS/datatable2.js"></script>
+        <script src="~/Scripts/DraftsDatatableJS/datatable3.js"></script>
+        <script src="~/Scripts/DraftsDatatableJS/datatable4.js"></script>
         <script>
             $(document).ready(function () {
                 var timeout = "";
@@ -162,7 +164,7 @@
                         { "data": "msg", "name": "msg" },
                         { "data": "tag", "name": "tag" },
                         { "data": "oficeName", "name": "oficeName" },
-                        { "data": "divisionName", "name": "divisionName"},
+                        { "data": "divisionName", "name": "divisionName" },
                         { "data": "username", "name": "username" },
                         {
                             "data": "Dateadded", "name": "Dateadded",
@@ -205,9 +207,9 @@
                     });
 
                     toastr.success('LOADING SUCCESS');
-                    
+
                 }
-            
+
 
                 var empTable2 = $("#draftlisttable2").DataTable({
 
@@ -224,7 +226,7 @@
                         { "data": "draftId", "name": "draftId" },
                         { "data": "msg", "name": "msg" },
                         { "data": "tag", "name": "tag" },
-                        { "data": "oficeName", "name": "oficeName","className": "hideThis" },
+                        { "data": "oficeName", "name": "oficeName", "className": "hideThis" },
                         { "data": "divisionName", "name": "divisionName", "className": "hideThis" },
                         { "data": "username", "name": "username", "className": "hideThis" },
                         {

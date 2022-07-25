@@ -1,6 +1,6 @@
 ﻿@model TryLogin.ViewModel.PhonebookVM
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Phonebook Sms Management System";
     Layout = (int)Session["Role_Id"] == 1 ? "~/Views/Shared/_LayoutAdmin.cshtml" : "~/Views/Shared/_LayoutUser.cshtml";
 }
 @Styles.Render("~/Content/css6")
@@ -19,54 +19,65 @@
 {
     <!--header-->
     <div class="agileheader">
-        <h1>SMS PHONE NUMBER</h1>
+        <h1 style="font-family:serif">SMS PHONE NUMBER</h1>
     </div>
     <!--//header-->
     <!--main-->
     <div class="main-w3l">
-        <div class="w3layouts-main" style="height: auto !important; width: 90% !important;">
+        <div class="w3layouts-main" style="height: auto !important; width: 90% !important; background: rgb(0 0 0 / 34%);">
             <h2>ADD Phone Number</h2>
             <form action="#" method="post">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class=" tom">
-                                <label>Phone Number </label>
+                                Phone Number  <label class="fa fa-phone-square" style="color:yellow"> </label>
                             </div>
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        @Html.EditorFor(model => model.Phonebook.CellphoneNum, new { htmlAttributes = new { @class = "form-control", maxlength = "11", @type = "number", placeholder = "Enter a Number" } })
+                        @Html.EditorFor(model => model.Phonebook.CellphoneNum, new { htmlAttributes = new { @class = "form-control", maxlength = "11", @type = "number", placeholder = "Enter a Number", style = "border-color:black", minlength = "11" } })
                         @Html.ValidationMessageFor(m => m.Phonebook.CellphoneNum)
 
 
                         <div class="form-group">
                             <div class="tom">
-                                <label>FullName </label>
+                                FullName  <label class="fa fa-user" style="color:yellow"> </label>
                             </div>
                         </div>
-                        @Html.TextBoxFor(u => u.Phonebook.FullName, new { @class = "form-control", required = "required" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Phonebook.FullName, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter Your Full Name", style = "border-color:black" } })
+                        @Html.ValidationMessageFor(m => m.Phonebook.FullName)
 
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class="tom">
-                                <label>Position </label>
+                                Position  <label class="fa fa-location-arrow" style="color:yellow"> </label>
                             </div>
                         </div>
-                        @Html.TextBoxFor(u => u.Phonebook.Position, new { @class = "form-control", required = "required" })
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Phonebook.Position, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter a Position", style = "border-color:black" } })
+                        @Html.ValidationMessageFor(m => m.Phonebook.Position)
                         <div class="form-group">
                             <div class="tom">
-                                <label>Remarks </label>
+                                Remarks  <label class="fa fa-arrow-circle-o-up" style="color:yellow"> </label>
                             </div>
                         </div>
-                        @Html.TextBoxFor(u => u.Phonebook.Remarks, new { @class = "form-control", required = "required" })
-                        <div class="clear"></div>
-                        @Html.HiddenFor(o => o.Phonebook.PhoneId)
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Phonebook.Remarks, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter a Remarks", style = "border-color:black" } })
+                        @Html.ValidationMessageFor(m => m.Phonebook.Remarks)
+
+
+                          
+
+                            <div class="clear"></div>
+                            @Html.HiddenFor(o => o.Phonebook.PhoneId)
+                            @Html.AntiForgeryToken()
+                        </div>
                     </div>
-                </div>
-                <div style="padding: 2% 0;">
-                    <button class="btn btn-primary" id="toastrSuccess" style="background-color:yellow; color:black">SAVE</button>
-                </div>
+                    <div style="padding: 2% 0;">
+                        <button class="btn btn-primary" id="toastrSuccess" style="background-color:yellow;color:black;width:200px;border-radius:20px;">CREATE</button>
+                    </div>
             </form>
 
         </div>
@@ -76,20 +87,24 @@
     <div class="footer-w3l">
 
     </div>
-    <!--//footer-->
+    <script src="~/Scripts/Adminjsdash/bootstrap.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 }
 
-
-    </body>
-</html>
-
 @section scripts{
-
+    @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-  
+
+        $(function () {
+
+            $("#MultipleDropdown").chosen();
+            width: "100%"
+
+        });
+
     </script>
 }
+

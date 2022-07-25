@@ -149,123 +149,123 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Broadcaster.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppDivision.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppDraft.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppGroup.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppOffice.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppPhonebook.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CgppRole.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Classification.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ConcernOffice.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Draft.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntryLog.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FormattedMessage.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Group.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Grouping_cellnumbers.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Menu.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MetaDataClass.cs" />
     <Compile Include="Models\MobileNetProvider.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Municipality.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\m_tblSMS_SystemFormat.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OfficialsInformation.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OfficialsPosition.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Phonebook.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\pilaKeyword.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PrefixMobileNumber.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\rawMessage.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SentItem.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SimCardInfo.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SiteRole.cs" />
     <Compile Include="Models\SMSFormat.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SmsManagementConnection.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmsManagementConnection.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SmsManagementConnection.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SmsManagementConnection.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SmsPDU.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SystemUser.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblGender.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblStuffNumber.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UnidentifiedNetwork.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>SmsManagementConnection.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -274,6 +274,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\DraftListVM.cs" />
     <Compile Include="ViewModel\DraftVM.cs" />
+    <Compile Include="ViewModel\GroupMessageViewModel.cs" />
     <Compile Include="ViewModel\GroupMessageVM.cs" />
     <Compile Include="ViewModel\ManageVM.cs" />
     <Compile Include="ViewModel\PhonebookListVM.cs" />
@@ -489,8 +490,11 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\DraftsDatatable\ajax.css" />
+    <Content Include="Content\DraftsDatatable\dataTables.semanticui.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\MultiDependent\style.css" />
     <Content Include="Content\registrationtemplate.css" />
     <Content Include="Content\sidenav.css" />
     <Content Include="Content\style.css" />
@@ -597,15 +601,15 @@
     <Content Include="images\Vector.jpg" />
     <Content Include="images\visit.png" />
     <Content Include="images\XfsRMB.jpg" />
-    <Content Include="Models\SmsManagementConnection.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
-      <LastGenOutput>SmsManagementConnection.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SmsManagementConnection.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
-      <LastGenOutput>SmsManagementConnection.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="obj\Debug\TempPE\Models.DemoModel.Context.cs.dll" />
     <Content Include="obj\Debug\TempPE\Models.DemoModel.cs.dll" />
@@ -665,12 +669,12 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <EntityDeploy Include="Models\SmsManagementConnection.edmx">
+    <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SmsManagementConnection.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SmsManagementConnection.edmx.diagram">
-      <DependentUpon>SmsManagementConnection.edmx</DependentUpon>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
@@ -1492,6 +1496,10 @@
     <Content Include="Scripts\DataTables\responsive.foundation.min.js" />
     <Content Include="Scripts\DataTables\responsive.jqueryui.js" />
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\DraftsDatatableJS\datatable1.js" />
+    <Content Include="Scripts\DraftsDatatableJS\datatable2.js" />
+    <Content Include="Scripts\DraftsDatatableJS\datatable3.js" />
+    <Content Include="Scripts\DraftsDatatableJS\datatable4.js" />
     <Content Include="Scripts\fontawesome.js" />
     <Content Include="Scripts\fontawesome.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -1506,6 +1514,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MultiDependentJS\plugins.js" />
+    <Content Include="Scripts\MultiDependentJS\script.js" />
     <Content Include="Scripts\navbar.js" />
     <Content Include="Scripts\sweetalert2.all.js" />
     <Content Include="Scripts\sweetalert2.all.min.js" />

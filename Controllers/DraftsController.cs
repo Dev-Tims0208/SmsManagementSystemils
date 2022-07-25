@@ -51,7 +51,6 @@ namespace TryLogin.Controllers
                     draftlist = draftlist.Where(d => d.CgppDrafts.Count > 0 && d.CgppDrafts.FirstOrDefault().User != null && d.CgppDrafts.FirstOrDefault().User.UserID == userID);
                 }
 
-               
 
                 int totalrows = draftlist.Count();
                 //custom filtering

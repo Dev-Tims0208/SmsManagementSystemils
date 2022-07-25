@@ -66,16 +66,17 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.EditorFor(model => model.Phonebook.Remarks, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter a Remarks", style = "border-color:black" } })
                         @Html.ValidationMessageFor(m => m.Phonebook.Remarks)
-
-                
+                    </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="tom">
                             GroupName  <label class="fa fa-location-arrow" style="color:yellow"> </label>
                         </div>
 
-                        @Html.DropDownListFor( model => model.Phonebook.GroupId, new SelectList (Model.GroupList,"GroupId" , "GroupName" ) , new { @class= "form-control", required = "required", @placeholder = "Enter a Message Here", } )
+                        @Html.DropDownListFor(model => model.Phonebook.GroupId, new SelectList(Model.GroupList, "GroupId", "GroupName"), new { @class = "form-control", required = "required", @placeholder = "Enter a Message Here", id="GroupDrop" })
 
                         <div class="clear"></div>
+                    </div>
                         @Html.HiddenFor(o => o.Phonebook.PhoneId)
                         @Html.AntiForgeryToken()
                     </div>
@@ -107,7 +108,7 @@
 
             $("#MultipleDropdown").chosen();
             width: "100%"
-
+            $("#GroupDrop").chosen();
         });
 
     </script>
