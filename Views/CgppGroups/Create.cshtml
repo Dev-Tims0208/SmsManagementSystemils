@@ -9,129 +9,119 @@
 @*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
 <body style="height: 100vh;">
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>Smart Login Form Responsive Widget Template:: W3layouts</title>
-        <!-- Meta tag Keywords -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
-        <script type="application/x-javascript">
-             addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-            function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!-- Meta tag Keywords -->
-        <!-- css files -->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all">
-        <!-- online-fonts -->
-        <!--//online-fonts -->
-        <body>
-            <!--header-->
-            <div class="agileheader">
-                <h1 style="font-family:serif">SMS GROUP MESSAGE</h1>
-            </div>
-            @using (Html.BeginForm("Save", "Drafts"))
-            {
-                <!--//header-->
-                <!--main-->
-                <div class="main-w3l">
-                    <div class="w3layouts-main" style="height: auto !important; background: rgb(0 0 0 / 34%);">
-                        <h2> SMS GROUP MESSAGE</h2>
-                        <form action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <div class="col-md-2 tom">
-                                            <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
-                                        </div>
-
-                                        @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:24px;" })
+  
+    <body>
+        <!--header-->
+        <div class="agileheader">
+            <h1 style="font-family:serif">SMS GROUP MESSAGE</h1>
+        </div>
+        @using (Html.BeginForm("Save", "Drafts"))
+        {
+            <!--//header-->
+            <!--main-->
+            <div class="main-w3l">
+                <div class="w3layouts-main" style="height: auto !important; background: rgb(0 0 0 / 34%);">
+                    <h2> SMS GROUP MESSAGE</h2>
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <div class="col-md-2 tom">
+                                        <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
                                     </div>
-                                </div>
-                                <div class="col-md-6">
 
-                                    <div class="form-group">
-                                        <div class="col-md-2 tom">
-                                            <div class="addphonenum">
-                                                <div class="row ">
-                                                </div>
-
-                                            </div>
-                                            <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
-                                        </div>
-                                        <div class="form-group">
-                                            @if (ViewBag.GroupsList != null)
-                                            {
-                                                @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupsList as SelectList, "--SELECT GROUPS--", new { @class = "form-control", @style="background-color:black;color:whitesmoke;" })
-                                            }
-                                        </div>
-
-                                        <div class="form-group">
-                                            @Html.DropDownListFor(model => model.PhoneId, new SelectList(" "), "--SELECT CELLPHONE #--", new { @class = "form-control", @style = "background-color:black;color:whitesmoke;" })
-                                        </div>
-                                    </div>
-                                    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-                                    <script>
-                                        $(document).ready(function () {
-                                            $("#GroupId").change(function () {
-                                                $.get("/CgppGroups/GetPhonebookList", { GroupId: $("#GroupId").val() }, function (data) {
-                                                    $("#PhoneId").empty();
-                                                    $.each(data, function (index, row) {
-                                                        $("#PhoneId").append("<option value='" + row.PhoneId + "'>" + row.CellphoneNum + "</option>")
-                                                    });
-                                                });
-                                            })
-                                        });
-                                    </script>
-
-
-
-
-
-                                    @*<div class="form-group">
-            <div class="scrolllamg">
-                <div class="row ">
-                    @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
-                </div>
-            </div>
-        </div>*@
-
-
-
-
-                                    @Html.HiddenFor(o => o.Draft.draftID)
-                                    <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
-                                             border-radius:20px;border:1px solid black;">
-                                        SAVE
-                                    </button>
+                                    @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:24px;" })
                                 </div>
                             </div>
-                        </form>
+                            <div class="col-md-6">
 
-                    </div>
+                                <div class="form-group">
+                                    <div class="col-md-2 tom">
+                                        <div class="addphonenum">
+                                            <div class="row ">
+                                            </div>
+
+                                        </div>
+                                        <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
+                                    </div>
+                                    <div class="form-group">
+                                        @if (ViewBag.GroupsList != null)
+                                        {
+                                            @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupsList as SelectList, "--SELECT GROUPS--", new { @class = "form-control", @style = "background-color:black;color:whitesmoke;" })
+                                        }
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(model => model.PhoneId, new SelectList(" "), "--SELECT CELLPHONE #--", new { @class = "form-control", multiple = "multiple", @style = "background-color:black;color:whitesmoke;" })
+                                    </div>
+                                </div>
+                                <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#GroupId").change(function () {
+                                            $.get("/CgppGroups/GetPhonebookList", { GroupId: $("#GroupId").val() }, function (data) {
+                                                $("#PhoneId").empty();
+                                                $.each(data, function (index, row) {
+                                                    $("#PhoneId").append("<option value='" + row.PhoneId + "'>" + row.CellphoneNum + "</option>")
+                                                });
+                                            });
+                                        })
+                                    });
+                                </script>
+
+
+
+
+
+                                @*<div class="form-group">
+                                    <div class="scrolllamg">
+                                        <div class="row ">
+                                            @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
+                                        </div>
+                                    </div>
+                                </div>*@
+
+
+
+
+                                @Html.HiddenFor(o => o.Draft.draftID)
+                                <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
+                                             border-radius:20px;border:1px solid black;">
+                                    SAVE
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
-                <!--//main-->
-                <!--footer-->
-                <div class="footer-w3l">
+            </div>
+            <!--//main-->
+            <!--footer-->
+            <div class="footer-w3l">
 
 
-                </div>
-             
-                <!--//footer-->
-            }
-            @section scripts{
-                        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-                <script type="text/javascript">
+            </div>
 
-                
+            <!--//footer-->
+        }
+        @section scripts{
+            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 
-                </script>
-            }
+            <script type="text/javascript">
+
+                $(function () {
+
+                    $("#MultipleDropdown").chosen();
+                    width: "100%"
+                });
+
+            </script>
+        }
 
 
 
 
-        </body>
+    </body>
 
 </html>
 

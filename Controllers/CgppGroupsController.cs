@@ -52,11 +52,11 @@ namespace TryLogin.Controllers
             return View("Create", vm);
 
         }
-        public JsonResult GetStateList(int GroupId)
+      public JsonResult GetPhonebookList(int GroupId)
         {
             Db.Configuration.ProxyCreationEnabled = false;
-            List<CgppPhonebook> PhoneList = Db.CgppPhonebooks.Where(x => x.PhoneId == GroupId).ToList();
-            return Json(PhoneList, JsonRequestBehavior.AllowGet);
+            List<CgppPhonebook> PhoneList = Db.CgppPhonebooks.Where(x => x.GroupId == GroupId).ToList(); 
+            return Json(PhoneList,JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Save(Draft draft)
