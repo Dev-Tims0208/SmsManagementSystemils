@@ -8,122 +8,126 @@
 
 @*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
 <body style="height: 100vh;">
-
-  
-    <body>
-        <!--header-->
-        <div class="agileheader">
-            <h1 style="font-family:serif">SMS GROUP MESSAGE</h1>
-        </div>
-        @using (Html.BeginForm("Save", "Drafts"))
-        {
-            <!--//header-->
-            <!--main-->
-            <div class="main-w3l">
-                <div class="w3layouts-main" style="height: auto !important; background: rgb(0 0 0 / 34%);">
-                    <h2> SMS GROUP MESSAGE</h2>
-                    <form action="#" method="post">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group ">
-                                    <div class="col-md-2 tom">
-                                        <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
-                                    </div>
-
-                                    @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:24px;" })
+    <!--header-->
+    <div class="agileheader">
+        <h1 style="font-family:serif">SMS GROUP MESSAGE</h1>
+    </div>
+    @using (Html.BeginForm("Save", "Drafts"))
+    {
+        <!--//header-->
+        <!--main-->
+        <div class="main-w3l">
+            <div class="w3layouts-main" style="height: auto !important; background: rgb(0 0 0 / 34%);">
+                <h2> SMS GROUP MESSAGE</h2>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <div class="col-md-2 tom">
+                                    <label style="color:black;"> MESSAGE </label> <label class="fa fa-comment-o" style="color:yellow"> </label> <br />
                                 </div>
-                            </div>
-                            <div class="col-md-6">
 
-                                <div class="form-group">
-                                    <div class="col-md-2 tom">
-                                        <div class="addphonenum">
-                                            <div class="row ">
-                                            </div>
-
-                                        </div>
-                                        <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
-                                    </div>
-                                    <div class="form-group">
-                                        @if (ViewBag.GroupsList != null)
-                                        {
-                                            @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupsList as SelectList, "--SELECT GROUPS--", new { @class = "form-control", @style = "background-color:black;color:whitesmoke;" })
-                                        }
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.DropDownListFor(model => model.PhoneId, new SelectList(" "), "--SELECT CELLPHONE #--", new { @class = "form-control", multiple = "multiple", @style = "background-color:black;color:whitesmoke;" })
-                                    </div>
-                                </div>
-                                <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-                                <script>
-                                    $(document).ready(function () {
-                                        $("#GroupId").change(function () {
-                                            $.get("/CgppGroups/GetPhonebookList", { GroupId: $("#GroupId").val() }, function (data) {
-                                                $("#PhoneId").empty();
-                                                $.each(data, function (index, row) {
-                                                    $("#PhoneId").append("<option value='" + row.PhoneId + "'>" + row.CellphoneNum + "</option>")
-                                                });
-                                            });
-                                        })
-                                    });
-                                </script>
-
-
-
-
-
-                                @*<div class="form-group">
-                                    <div class="scrolllamg">
-                                        <div class="row ">
-                                            @Html.DropDownListFor(model => model.Phonebook.CellphoneNum, new SelectList(Model.PhonebookList, "PhoneId", "CellphoneNum"), new { @class = "form-control", required = "required", @style = "background-color:black;color:white;font-family:sans-serif" })
-                                        </div>
-                                    </div>
-                                </div>*@
-
-
-
-
-                                @Html.HiddenFor(o => o.Draft.draftID)
-                                <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
-                                             border-radius:20px;border:1px solid black;">
-                                    SAVE
-                                </button>
+                                @Html.TextAreaFor(u => u.Draft.msg, new { @class = " message", required = "required", @placeholder = "Enter a Message Here", @style = "font-size:24px;" })
                             </div>
                         </div>
-                    </form>
+                        <div class="col-md-6">
 
-                </div>
+                            <div class="form-group">
+                                <div class="col-md-2 tom">
+                                    <div class="addphonenum">
+                                        <div class="row ">
+                                        </div>
+
+                                    </div>
+                                    <label style="color:black;"> GROUPNAME </label> <label class="fa fa-user" style="color:yellow"> </label> <br />
+                                </div>
+                                <div class="form-group">
+                                    @if (ViewBag.GroupsList != null)
+                                    {
+                                        @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupsList as SelectList, "--SELECT GROUPS--", new { @class = "form-control", name = "Draft.sendTo", @style = "background-color:black;color:whitesmoke;" })
+                                    }
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.PhoneId, new SelectList(" "), "--SELECT CELLPHONE #--", new { @class = "form-control", @multiple = "multiple", name = "Draft.sendTo", @style = "background-color:black;color:whitesmoke;" })
+                                </div>
+                            </div>
+
+                            <button type="button" class="chosen-toggle select">SELECT ALL <i class="fa fa-check" style="color:green;"></i></button>
+                            <button type="button" class="chosen-toggle deselect">DESELECT ALL <i class="fa fa-times" style="color:red !important;"></i></button>
+
+
+
+
+
+                            @Html.HiddenFor(o => o.Draft.draftID)
+                            <button class="btn btn-danger" id="toastrSuccess" style="background-color:yellow;color:black; width:100px;
+                                             border-radius:20px;border:1px solid black;">
+                                SAVE
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
-            <!--//main-->
-            <!--footer-->
-            <div class="footer-w3l">
+        </div>
+        <!--//main-->
+        <!--footer-->
+        <div class="footer-w3l">
 
 
-            </div>
+        </div>
 
-            <!--//footer-->
-        }
-        @section scripts{
-            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <!--//footer-->
+    }
+    @*<link href="~/Content/chosen.css" rel="stylesheet" />*@
+    @section scripts{
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+      
+        @*<script src="~/Scripts/chosen.jquery.min.js"></script>*@
 
-            <script type="text/javascript">
+        <script type="text/javascript">
 
-                $(function () {
 
-                    $("#MultipleDropdown").chosen();
-                    width: "100%"
+            $(document).ready(function () {
+
+
+                $("#GroupId").change(function () {
+                    $.get("/CgppGroups/GetPhonebookList", { GroupId: $("#GroupId").val() }, function (data) {
+                        $("#PhoneId").empty();
+                        $.each(data, function (index, row) {
+                            $("#PhoneId").append("<option value='" + row.PhoneId + "'>" + row.CellphoneNum + " | " + row.FullName + " </option>") //MULTIPLE DEPENDENT DROPDOWN
+                        });
+                    });
+                })
+            });
+
+
+            $('select').chosen({ width: "300px" });
+            $('.chosen-toggle').each(function (index) { //SELECT AND DESELECT
+                console.log(index);
+                $(this).on('click', function () {
+                    console.log($(this).parent().find('option').text());
+                    $(this).parent().find('option').prop('selected', $(this).hasClass('select')).parent().trigger('chosen:updated');
                 });
+            });
 
-            </script>
-        }
+            //$(function () {
+
+            //    $("#Multidrop").chosen();
+            //    width: "100%"
+            //});
+
+
+        </script>
+    }
 
 
 
 
-    </body>
 
-</html>
+</body>
+
 
 
 

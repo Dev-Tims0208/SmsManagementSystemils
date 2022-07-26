@@ -495,6 +495,8 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\MultiDependent\style.css" />
+    <Content Include="Content\MultipleDropDownChosen\chosen.css" />
+    <Content Include="Content\MultipleDropDownChosen\chosen.min.css" />
     <Content Include="Content\registrationtemplate.css" />
     <Content Include="Content\sidenav.css" />
     <Content Include="Content\style.css" />
@@ -1516,6 +1518,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\MultiDependentJS\plugins.js" />
     <Content Include="Scripts\MultiDependentJS\script.js" />
+    <Content Include="Scripts\MultipleDropdownChosen\chosen.jquery.js" />
+    <Content Include="Scripts\MultipleDropdownChosen\chosen.jquery.min.js" />
     <Content Include="Scripts\navbar.js" />
     <Content Include="Scripts\sweetalert2.all.js" />
     <Content Include="Scripts\sweetalert2.all.min.js" />
