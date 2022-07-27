@@ -225,6 +225,7 @@ namespace TryLogin.Controllers
 
 
             }
+            TempData["Message"] = "SAVE SUCCESSFULLY";
 
             return RedirectToAction("Index", "Drafts");
         }

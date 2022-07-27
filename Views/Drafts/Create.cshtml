@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="scrolllamg">
                                             <select name="sendTo" id="MultipleDropdown" multiple="multiple" class="form-control" required="required" data-placeholder=" Enter a Phone Number Here">
-                                                @foreach (var phone in Model.Phonebooklist)
+                                                @foreach (var phone in Model.Phonebooklist.OrderByDescending(s => s.PhoneId))
                                                 {
                                                     <option value="@phone.CellphoneNum" id="Cellphone">    @phone.CellphoneNum    |     @phone.FullName</option>
                                                 }

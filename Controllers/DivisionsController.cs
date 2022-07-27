@@ -80,9 +80,10 @@ namespace TryLogin.Controllers
                 ViewBag.Offices = db.CgppOffices.ToList();
                 db.CgppDivisions.Add(cgppDivision);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["Message"] = "SAVE SUCCESSFULLY";
+                return RedirectToAction("Index", "Divisions");
             }
-
+        
             ViewBag.Offices = db.CgppOffices.ToList();
             ViewBag.OfficeId = new SelectList(db.CgppOffices, "Id", "Name", cgppDivision.OfficeId);
             return View(cgppDivision);
@@ -145,6 +146,7 @@ namespace TryLogin.Controllers
             db.CgppDivisions.Remove(cgppDivision);
             db.SaveChanges();
             return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)

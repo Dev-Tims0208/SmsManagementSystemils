@@ -71,6 +71,7 @@ namespace TryLogin.Controllers
             }
 
             Db.SaveChanges();
+            TempData["Message"] = "SAVE SUCCESSFULLY";
             return RedirectToAction("Index", "Drafts");
         }
     }

@@ -9,7 +9,7 @@
         background: url(/images/2.jpg) no-repeat 100% 100%;
     }
 </style>
-
+<span style="display:none;" id="Message" class="d-none">@TempData["Message"]</span>
 @*<h2>@((int)Session["Role_Id"] == 1 ? "Admin" : "User")</h2>*@
 
 <body>
@@ -34,6 +34,9 @@
                         <div class="row">
                             <table class="table divdes" id="draftList">
                                 <thead>
+                                <th style="font-family:Cambria; display:none;">
+                                    ID <br /> <span class="fa fa-building-o" style="color:yellow">  </span>
+                                </th>
                                 <th style="font-family:Cambria">
                                     DIVISION NAME <br /> <span class="fa fa-building-o" style="color:yellow">  </span>
                                 </th>
@@ -49,7 +52,7 @@
 
                                     {
                                         <tr>
-
+                                            <td style="display:none;">@user.Id</td>
                                             <td>@user.Name</td>
                                             <td>@(user.OfficeId.HasValue ? user.CgppOffice.Name : "")</td>
 
@@ -67,20 +70,22 @@
             </div>
         </div>
     </div>
-        @section scripts {
+    @section scripts {
 
-            <script>
-                $(document).ready(function () {
-                    $('#draftList').dataTable({
-
-                        "order": [[0, "desc"]]
-                    });
-                    document.body.style.color = '#dd3e3e';
-                    toastr.success('LOADING SUCCESS');
+        <script>
+            $(document).ready(function () {
+                var message = $('#Message').text();
+                if (message !== '') {
+                    toastr.success('SAVE SUCCESSFULLY');
+                } 
+                $('#draftList').dataTable({
+                    "order": [[0, "desc"]]
                 });
+                document.body.style.color = '#dd3e3e';
 
-            </script>
-        }
+            });
+        </script>
+    }
 
 </body>
 

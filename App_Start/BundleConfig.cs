@@ -24,12 +24,13 @@ namespace TryLogin
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/Scripts/bootstrap.js",
-                //"~/Content/AdminFrontpage/bootstrap.min.css",
+                "~/Scripts/toastr.min.js",
                 "~/Content/datatables/css/datatables.bootstrap.min.css"
             ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
+                  "~/Content/toastr.min.css",
             "~/Content/site.css"));
 
 

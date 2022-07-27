@@ -82,9 +82,9 @@ namespace TryLogin.Controllers
                 db.CgppOffices.Add(cgppOffice);
                 db.SaveChanges();
 
-                TempData["mssg"] = "Thank You.";
+                TempData["Message"] = "SAVE SUCCESSFULLY";
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Offices");
             }
 
             return View(cgppOffice);

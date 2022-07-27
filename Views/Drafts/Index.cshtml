@@ -13,6 +13,7 @@
         background-color: #242529 !important;
     }
 </style>
+<span style="display:none;" id="Message" class="d-none">@TempData["Message"]</span>
 <body style=" background-color: #242529 !important;">
     <div class="container" style="background-color: #1d1e22ed; width: 120%; padding: 62px; border-radius: 50px;border: 1px solid #CAC280; margin-left:-130px ">
 
@@ -146,6 +147,10 @@
         <script src="~/Scripts/DraftsDatatableJS/datatable4.js"></script>
         <script>
             $(document).ready(function () {
+                var message = $('#Message').text();
+                if (message !== '') {
+                    toastr.success('SAVE SUCCESSFULLY');
+                }
                 var timeout = "";
 
                 var empTable = $("#draftlisttable").DataTable({
@@ -206,8 +211,6 @@
                         });
                     });
 
-                    toastr.success('LOADING SUCCESS');
-
                 }
 
 
@@ -267,7 +270,7 @@
                             }, 1000)
                         });
                     });
-                    toastr.success('LOADING SUCCESS');
+                   
                 }
             });
         </script>

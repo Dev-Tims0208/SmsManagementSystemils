@@ -9,7 +9,7 @@
         background: url(/images/2.jpg) no-repeat 100% 100%;
     }
 </style>
-
+<span style="display:none;" id="Message" class="d-none">@TempData["Message"]</span>
 <div class="row officerow">
     <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY OFFICE</h2>
     <div class="container-fluid">
@@ -57,22 +57,18 @@
 @section scripts {
  
     <script src="~/Scripts/sweetalert2.js"></script>
-    B
+    
     <script>
         $(document).ready(function () {
+            var message = $('#Message').text();
+            if (message !== '') {
+                toastr.success('SAVE SUCCESSFULLY');
+            }
             $('#draftList').dataTable({
-
                 "order":[[0,"desc"]]
             });
             document.body.style.color = '#dd3e3e';
-            toastr.success('LOADING SUCCESS');
+           
         });
-
-             @*var strValue = "@((string)ViewBag.mssg)";
-        if(strValue !== null && strValue !==  '') {
-            swal("", strValue, "success");
-        }*@
-
-
     </script>
 }

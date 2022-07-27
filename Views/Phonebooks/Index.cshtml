@@ -11,6 +11,7 @@
         background: url(/images/2.jpg) no-repeat 100% 100%;
     }
 </style>
+<span style="display:none;" id="Message" class="d-none">@TempData["Message"]</span>
 <div class="container" style=" margin-left: -150PX;">
     <div class="row phonebookrow" style="margin-left: -160PX; padding-left: 190px;">
         <h2 style="font-family:'Californian FB'; color:white; font-weight:800">DISPLAY PHONEBOOKS</h2>
@@ -101,12 +102,16 @@
     @section scripts {
         <script>
             $(document).ready(function () {
+                var message = $('#Message').text();
+                if (message !== '') {
+                    toastr.success('SAVE SUCCESSFULLY');
+                }
                 $('#divisionList').dataTable({
                     order: [[0, 'desc']],
                 });
                 document.body.style.color = '#dd3e3e';
 
-                toastr.success('LOADING SUCCESS');
+               
             })
         </script>
     }

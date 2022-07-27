@@ -23,6 +23,7 @@ namespace TryLogin.Controllers
         var result = Db.Logins.Where(a => a.Username == log.Username && a.Password == log.Password).ToList();
         if (result.Count() > 0)
         {
+
             Session["LoginID"] = result[0].LoginID;
             Session["Role_Id"] = result[0].RoleID;
             FormsAuthentication.SetAuthCookie(result[0].Username, false);
@@ -37,12 +38,13 @@ namespace TryLogin.Controllers
             {
                 return RedirectToAction("Index", "User");
             }
-
-        }
+                
+            }
         else
         {
             ViewBag.Message = "Incorrect Username or Password";
         }
+
         return View(log);
             }
         public ActionResult Logout()
