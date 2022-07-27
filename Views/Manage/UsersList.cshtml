@@ -10,6 +10,7 @@
         background: url(/images/2.jpg) no-repeat 100% 100%;
     }
 </style>
+<span style="display:none;" id="Message" class="d-none">@TempData["Message"]</span>
 <body>
     <div class="container userto">
         <div class="row userlistrow">
@@ -40,8 +41,8 @@
                         Address <br /> <span class="fa fa-location-arrow" style="color:yellow">   </span>
                     </th>
                     @*<th>
-                        Gender <span class="fa fa-venus-mars" style="color:yellow">   </span>
-                    </th>*@
+                            Gender <span class="fa fa-venus-mars" style="color:yellow">   </span>
+                        </th>*@
                     <th style="font-family:Cambria">
                         EmailAddress <br /> <span class="fa fa-envelope-o" style="color:yellow">   </span>
                     </th>
@@ -90,12 +91,15 @@
 @section scripts {
     <script>
         $(document).ready(function () {
+            var message = $('#Message').text();
+            if (message !== '') {
+                toastr.success('SAVE SUCCESSFULLY');
+            }
             $('#userList').dataTable({
-
                 "order": [[0, "desc"]]
             });
             document.body.style.color = '#dd3e3e';
-            toastr.success('LOADING SUCCESS');
+
         });
     </script>
 }

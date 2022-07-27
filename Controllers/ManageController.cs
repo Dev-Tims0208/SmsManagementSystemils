@@ -81,7 +81,9 @@ namespace TryLogin.Controllers
 
                 Db.SaveChanges();
 
-                return RedirectToAction("UsersList");
+                TempData["Message"] = "SAVE SUCCESSFULLY";
+
+                return RedirectToAction("UsersList" , "Manage");
             }
 
          
