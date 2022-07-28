@@ -44,8 +44,8 @@
                             <i class="fa fa-users" style="color: yellow "></i>
                             <li>@Html.ActionLink("USERS", "Index", "User")</li>
 
-                        
-                      
+
+
                             <li id="menu-academico">
                                 <a href="#"><i class="fa fa-phone-square" style="color: yellow;"></i><span style="color:whitesmoke;">PHONEBOOKS</span><span class="fa fa-angle-right" style="float: right; color:red;;"></span></a>
                                 <ul id="menu-academico-sub">
@@ -56,21 +56,31 @@
 
                             @*<li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>*@
                             <li>
-                                <a href="#"><i class="fa fa-envelope" style="color: yellow" ></i><span style="color:whitesmoke;">DRAFTS</span ><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
+                                <a href="#"><i class="fa fa-envelope" style="color: yellow"></i><span style="color:whitesmoke;">DRAFTS</span><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
                                 <ul id="menu-academico-sub">
                                     <li>@Html.ActionLink("Create Single Message ", "Create", "SingleDrafts")</li>
                                     <li>@Html.ActionLink("Create Multiple Message ", "Create", "Drafts")</li>
                                     <li>@Html.ActionLink("Display Drafts", "Index", "Drafts")</li>
-                    
+
                                 </ul>
                             </li>
-                       
+
+                            <li>
+                                <a href="#"><i class="fa fa-sign-out" style="color: yellow"></i><span style="color:whitesmoke;">ACCOUNT</span><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li>@Html.ActionLink("Manage Account", "UsersList", "Manage")</li>
+                                </ul>
+                            </li>
+
+
+
                             <li>
                                 <a href="#"><i class="fa fa-sign-out" style="color: yellow"></i><span style="color:whitesmoke;">LOGOUT</span><span class="fa fa-angle-right" style="float: right; color: red;"></span></a>
                                 <ul id="menu-academico-sub">
                                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                                 </ul>
                             </li>
+
                         </ul>
                     </div>
                 </div>

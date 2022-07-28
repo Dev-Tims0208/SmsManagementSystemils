@@ -23,11 +23,11 @@ select,
 textarea {
     max-width: 100% !important;
 }
-.tom{
+.tom {
     color: black !important;
     padding: 20px;
-    font-family:'Courier New';
-
+    font-family: system-ui;
+    font-weight: 500;
 }
 .message {
     COLOR: WHITE;

@@ -5,105 +5,118 @@
 }
 @Styles.Render("~/Content/css4")
 @Scripts.Render("~/bundles/modernizr")
+<style>
+    .w3layouts-main {
+        background: url('/images/2.jpg') no-repeat 100% 100% !important;
+        background-size: cover !important;
+        background-attachment: fixed !important;
+    }
+</style>
 <html>
 <body>
 
-    @using (Html.BeginForm("Edit", "Manage", FormMethod.Post, new { enctype = "multipart/form-data"}))
-    {
 
+    @using (Html.BeginForm("Edit", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
         <div class="agileheader">
-            <h1>Edit UserList</h1>
+            <h1 style="font-family:serif">SMS EDIT ACCOUNT</h1>
         </div>
 
         <div class="main-w3l">
-            <div class="w3layouts-main" style="height: auto !important; width: 90% !important;">
+            <div class="w3layouts-main" style="height: auto !important; width: 90% !important; background: rgb(0 0 0 / 34%);margin-top:-56px;">
+                <h2>EDIT ACCOUNT</h2>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class=" tom">
+                                    FullName  <label class="fa fa-user" style="color:yellow"> </label>
+                                </div>
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", style="background-color:black;color:white;" } })
 
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            <label>FullName </label>
+
+                            <div class="form-group">
+                                <div class="tom">
+                                    Address  <label class="fa fa-location-arrow" style="color:yellow"> </label>
+                                </div>
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", style = "background-color:black;color:white;" } })
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="tom">
+                                    Email Address  <label class="fa fa-envelope-o" style="color:yellow"> </label>
+                                </div>
+                            </div>
 
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", style = "background-color:black;color:white;" } })
+                            <div class="form-group">
+                                <div class="tom">
+                                    Office Name  <label class="fa fa-building" style="color:yellow"> </label>
+                                </div>
+                            </div>
+                            @Html.DropDownListFor(d => d.Officeid, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control", style = "background-color:black;color:white;" })
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="text-align:center;">
+                                <div class="tom">
+                                    Division Name  <label class="fa fa-building-o" style="color:yellow"> </label>
+                                </div>
+                                @Html.DropDownListFor(d => d.Divisionid, new SelectList(Model.DivisionList, "Id", "Name"), new { @class = "form-control", style = "background-color:black;color:white;" })
+
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="text-align:center;">
+                                <div class="tom">
+                                    UserName  <label class="fa fa-users" style="color:yellow"> </label>
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", style = "background-color:black;color:white;" } })
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="text-align:center;">
+                                <div class="tom">
+                                    Password  <label class="fa fa-key" style="color:yellow"> </label>
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password", style = "background-color:black;color:white;" })
+
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="text-align:center;">
+                                <div class="tom">
+                                    Profile Picture  <label class="fa fa-picture-o" style="color:yellow"> </label>
+                                </div>
+                                @*@Html.LabelFor(m => m.files, htmlAttributes: new { @class = "control-label text-left ", @style = "position: relative; padding-bottom: 2%;" })*@
+                                @Html.TextBoxFor(m => m.files, "", new { @type = "file", @multiple = "multiple", @id = "imageBrowes", @class = "form-control", style = "background-color:black;color:#ff3939;" })
+                                @Html.ValidationMessageFor(m => m.files, "", new { @class = "text-danger" })
+
+                                <div class="clear"></div>
+                            </div>
+                            @Html.HiddenFor(o => o.UserID)
+                            @Html.AntiForgeryToken()
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            <label>Address </label>
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        <div style="padding: 2% 0;">
+                            <button class="btn btn-primary" style="background-color: #F24600; color: white; border-radius: 20px; width: 120px;" id="toastrSuccess">SAVE</button>
                         </div>
-                    </div>
 
+                </form>
 
-                    <div class="form-group">
-                        <div class="col-md-9 tom">
-                            <label>Email Address </label>
-
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            @Html.DropDownListFor(d => d.Officeid, new SelectList(Model.OfficeList, "Id", "Name"), new { @class = "form-control" })
-                            <label>OfficeName </label>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            <label>DivisionName </label>
-                            @Html.DropDownListFor(d => d.Divisionid, new SelectList(Model.DivisionList, "Id", "Name"), new { @class = "form-control" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            <label>Username </label>
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-8 tom">
-                            <label>Password </label>
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
-                    </div>
-
-                    <div class="form-group text-left">
-                        @Html.LabelFor(m => m.files, htmlAttributes: new { @class = "control-label text-left ", @style = "position: relative; padding-bottom: 2%;" })
-                        @Html.TextBoxFor(m => m.files, "", new { @type = "file", @multiple = "multiple", @id = "imageBrowes", @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.files, "", new { @class = "text-danger" })
-                    </div>
-
-                </div>
             </div>
         </div>
 
-        <div style="padding: 2% 0;">
-            <button class="btn btn-primary" id="toastrSuccess">SAVE</button>
-        </div>
-
-
-        @Html.HiddenFor(o => o.UserID)
-
-
-
-
-
-        <!--//main-->
-        <!--footer-->
-        <div class="footer-w3l">
-
-        </div>
-        <!--//footer-->
         <script src="~/Scripts/jquery.validate.js"></script>
         <script src="~/Scripts/jquery.validate.min.js"></script>
         <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -118,3 +131,65 @@
 
     <script type="text/javascript"></script>
 }
+
+
+
+@*<form action="#" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class=" tom">
+                    Phone Number  <label class="fa fa-phone-square" style="color:yellow"> </label>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Phonebook.CellphoneNum, new { htmlAttributes = new { @class = "form-control", maxlength = "11", @type = "number", placeholder = "Enter a Number", style = "border-color:black", minlength = "11" } })
+            @Html.ValidationMessageFor(m => m.Phonebook.CellphoneNum)
+
+
+            <div class="form-group">
+                <div class="tom">
+                    FullName  <label class="fa fa-user" style="color:yellow"> </label>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Phonebook.FullName, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter Your Full Name", style = "border-color:black" } })
+            @Html.ValidationMessageFor(m => m.Phonebook.FullName)
+
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="tom">
+                    Position  <label class="fa fa-location-arrow" style="color:yellow"> </label>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Phonebook.Position, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter a Position", style = "border-color:black" } })
+            @Html.ValidationMessageFor(m => m.Phonebook.Position)
+            <div class="form-group">
+                <div class="tom">
+                    Remarks  <label class="fa fa-arrow-circle-o-up" style="color:yellow"> </label>
+                </div>
+            </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Phonebook.Remarks, new { htmlAttributes = new { @class = "form-control", maxlength = "50", @type = "text", placeholder = "Enter a Remarks", style = "border-color:black" } })
+            @Html.ValidationMessageFor(m => m.Phonebook.Remarks)
+        </div>
+        <div class="col-md-12">
+            <div class="form-group" style="text-align:center;">
+                <div class="tom">
+                    GroupName  <label class="fa fa-users" style="color:yellow"> </label>
+                </div>
+
+                @Html.DropDownListFor(model => model.Phonebook.GroupId, new SelectList(Model.GroupList, "GroupId", "GroupName"), "SELECT A GROUP", new { @class = "form-control", required = "required", @placeholder = "Enter a Message Here", @style = "border:1px solid black;", })
+
+                <div class="clear"></div>
+            </div>
+            @Html.HiddenFor(o => o.Phonebook.PhoneId)
+            @Html.AntiForgeryToken()
+        </div>
+    </div>
+    <div style="padding: 2% 0;">
+        <button class="btn btn-primary" id="toastrSuccess" style="background-color:yellow;color:black;width:200px;border-radius:20px;">CREATE</button>
+    </div>
+</form>*@

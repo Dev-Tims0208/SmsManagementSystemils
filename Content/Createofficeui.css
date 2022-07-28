@@ -163,7 +163,7 @@ input[type="email"] {
 }
 
 input[type="password"] {
-    background: url("../images/pass.png") no-repeat 8px 9px;
+   /* background: url("../images/pass.png") no-repeat 8px 9px;*/
     background-size: 28px;
 }
 
