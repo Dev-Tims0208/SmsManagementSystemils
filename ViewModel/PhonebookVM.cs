@@ -14,5 +14,7 @@ namespace TryLogin.ViewModel
         public CgppGroup Group { get; set; }
            public IEnumerable <Draft> DraftList { get; set; }
         public Draft Draft { get; set; }
+
+        public  int GroupId { get; set; }
     }
 }

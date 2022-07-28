@@ -65,7 +65,8 @@ namespace TryLogin.Controllers
             var viewModel = new PhonebookVM()
             {
                 Phonebook = phonebook,
-                PhonebookList = Db.CgppPhonebooks.ToList()
+                PhonebookList = Db.CgppPhonebooks.ToList(),
+                GroupList = Db.CgppGroups.ToList(),
 
             };
 

@@ -277,7 +277,6 @@
     <Compile Include="ViewModel\GroupMessageViewModel.cs" />
     <Compile Include="ViewModel\GroupMessageVM.cs" />
     <Compile Include="ViewModel\ManageVM.cs" />
-    <Compile Include="ViewModel\PhonebookListVM.cs" />
     <Compile Include="ViewModel\PhonebookVM.cs" />
     <Compile Include="ViewModel\SingleDraftVM.cs" />
   </ItemGroup>
@@ -492,6 +491,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\DraftsDatatable\ajax.css" />
     <Content Include="Content\DraftsDatatable\dataTables.semanticui.min.css" />
+    <Content Include="Content\DynamicDropdownSelect2plugin\select2.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\MultiDependent\style.css" />
@@ -1503,6 +1503,7 @@
     <Content Include="Scripts\DraftsDatatableJS\datatable2.js" />
     <Content Include="Scripts\DraftsDatatableJS\datatable3.js" />
     <Content Include="Scripts\DraftsDatatableJS\datatable4.js" />
+    <Content Include="Scripts\DynamicDropdownSelect2plugin\select2.min.js" />
     <Content Include="Scripts\fontawesome.js" />
     <Content Include="Scripts\fontawesome.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
