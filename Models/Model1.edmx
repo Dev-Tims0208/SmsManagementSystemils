@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ilsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ilsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Broadcasters">
           <Key>
             <PropertyRef Name="id" />
@@ -359,6 +359,7 @@
           <Property Name="OfficeID" Type="int" />
           <Property Name="DivisionID" Type="int" />
           <Property Name="DateAdded" Type="datetime" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_CgppDivision_CgppOffices">
           <End Role="CgppOffices" Type="Self.CgppOffices" Multiplicity="0..1" />
@@ -780,8 +781,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ilsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1187,6 +1187,7 @@
           <NavigationProperty Name="CgppOffice" Relationship="Self.FK_User_CgppOffices" FromRole="User" ToRole="CgppOffices" />
           <NavigationProperty Name="CgppPhonebooks" Relationship="Self.FK_CgppPhonebook_User" FromRole="User" ToRole="CgppPhonebook" />
           <NavigationProperty Name="Login" Relationship="Self.FK_User_Login" FromRole="User" ToRole="Login" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CgppDivision_CgppOffices">
           <End Role="CgppOffices" Type="Self.CgppOffice" Multiplicity="0..1" />
@@ -1990,6 +1991,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ilsModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="LoginID" ColumnName="LoginID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

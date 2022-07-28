@@ -506,6 +506,7 @@
     <Content Include="Content\template.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="DefaultImage\city-hall.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -1573,6 +1574,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ProfileImages\" />
     <Folder Include="Views\Cgpp\" />
     <Folder Include="Views\Phonebook\" />
   </ItemGroup>

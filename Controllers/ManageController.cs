@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -65,6 +66,7 @@ namespace TryLogin.Controllers
                     userdet.LoginID = log.LoginID;//Db.Logins.Max(a => a.LoginID);
                     Db.Users.Add(userdet);
                     userdet.DateAdded = DateTime.Now;
+                    userdet.FilePath = "/DefaultImage/city-hall.png";
 
                 }
                 else
@@ -127,7 +129,9 @@ namespace TryLogin.Controllers
                 Address = users.Address,
                EmailAddress = users.EmailID,
                Password = users.Login.Password,
-               UserID = id
+               UserID = id,
+               FilePath = users.FilePath,
+
             };
 
             return View("Edit", viewModel);
@@ -136,18 +140,83 @@ namespace TryLogin.Controllers
         [HttpPost]
         public ActionResult Edit(ManageVM userdet)
         {
-            var usersInDb = Db.Users.Single(c => c.UserID == userdet.UserID);
-            usersInDb.Name = userdet.Name;
-            usersInDb.Address = userdet.Address;
-            usersInDb.DateAdded = DateTime.Now;
-            usersInDb.EmailID = userdet.EmailAddress;
-            usersInDb.CgppOffice = Db.CgppOffices.Find(userdet.Officeid);
-            usersInDb.UserName = userdet.Username;
-            usersInDb.Password = userdet.Password;
-            usersInDb.RPassword = userdet.Password;
-            usersInDb.CgppDivision = Db.CgppDivisions.Find(userdet.Divisionid);
-            Db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var usersInDb = Db.Users.Single(c => c.UserID == userdet.UserID);
+                usersInDb.Name = userdet.Name;
+                usersInDb.Address = userdet.Address;
+                usersInDb.DateAdded = DateTime.Now;
+                usersInDb.EmailID = userdet.EmailAddress;
+                usersInDb.CgppOffice = Db.CgppOffices.Find(userdet.Officeid);
+                usersInDb.UserName = userdet.Username;
+                usersInDb.Password = userdet.Password;
+                usersInDb.RPassword = userdet.Password;
+                usersInDb.CgppDivision = Db.CgppDivisions.Find(userdet.Divisionid);
+
+                Db.SaveChanges();
+
+                foreach (HttpPostedFileBase file in userdet.files)
+                {
+                    if (file != null)
+                    {
+                        var InputFileName = userdet.FilePath + DateTime.Now.Ticks +
+                                            Path.GetFileName(file.FileName);
+                        var FileNameGetter = Path.GetFileName(file.FileName);
+                        var ServerSavePath = Path.Combine(Server.MapPath("~/ProfileImages/") + InputFileName);
+
+                        file.SaveAs(ServerSavePath);
+                         
+                        usersInDb.FilePath = "/ProfileImages/" + InputFileName;
+
+                    }
+
+                }
+
+
+                Db.SaveChanges();
+            }
+
             return RedirectToAction("UsersList");
         }
-    }
+  
+        
+
+        //[HttpPost]
+        //public ActionResult UploadFiles(HttpPostedFileBase[] files, FileModel fileModel)
+        //{
+
+        //        foreach (HttpPostedFileBase file in files)
+        //        {
+        //            if (file != null)
+        //            {
+        //                var InputFileName = fileModel.DocumentLabel + DateTime.Now.Ticks + counter +
+        //                                    Path.GetFileName(file.FileName);
+        //                var FileNameGetter = Path.GetFileName(file.FileName);
+        //                var ServerSavePath = Path.Combine(Server.MapPath("~/UploadedFiles/") + InputFileName);
+
+        //                file.SaveAs(ServerSavePath);
+
+        //                ctx.UploadDisplays.Add(new UploadDisplay()
+        //                {
+        //                    DocumentPath = "~/UploadedFiles/" + InputFileName,
+        //                    FileName = fileModel.DocumentLabel,
+        //                    FileModelId = fileModel.Id,
+        //                    DepartmentsId = fileModel.DepartmentsId,
+        //                    DivisionsId = fileModel.DivisionsId,
+        //                    Created = fileModel.UploadedBy
+        //                });
+
+        //            }
+
+        //            counter++;
+        //        }
+
+        //        ctx.SaveChanges();
+        //    }
+
+        //    return RedirectToAction("Index", "UploadDisplay");
+
+
+
+        }
 }

@@ -41,8 +41,8 @@
                         Address <br /> <span class="fa fa-location-arrow" style="color:yellow">   </span>
                     </th>
                     @*<th>
-                            Gender <span class="fa fa-venus-mars" style="color:yellow">   </span>
-                        </th>*@
+            Gender <span class="fa fa-venus-mars" style="color:yellow">   </span>
+        </th>*@
                     <th style="font-family:Cambria">
                         EmailAddress <br /> <span class="fa fa-envelope-o" style="color:yellow">   </span>
                     </th>
@@ -58,6 +58,9 @@
                     </th>
                     <th style="font-family:Cambria">
                         Action <br /> <span class="fa fa-floppy-o" style="color:yellow">   </span>
+                    </th>
+                    <th style="font-family:Cambria">
+                        Image <br /> <span class="fa fa-floppy-o" style="color:yellow">   </span>
                     </th>
                     </thead>
 
@@ -78,6 +81,18 @@
                                 @*<td>@(user.RolesId.HasValue ? user.CgppRole.Name : "")</td>*@
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = user.UserID }, new { @class = "btn btn-success fa fa-pencil-square" })
+                                </td>
+                                <td>
+                                    @if (user.FilePath == null)
+                                    {
+                                        <span> Inage not set</span>
+                                    }
+                                    else
+                                    {
+
+                                        <img src="@user.FilePath" width="50" height="50" />
+                                    }
+
                                 </td>
                             </tr>
                         }

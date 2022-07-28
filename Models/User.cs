@@ -31,6 +31,7 @@ namespace TryLogin.Models
         public Nullable<int> OfficeID { get; set; }
         public Nullable<int> DivisionID { get; set; }
         public Nullable<System.DateTime> DateAdded { get; set; }
+        public string FilePath { get; set; }
     
         public virtual CgppDivision CgppDivision { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

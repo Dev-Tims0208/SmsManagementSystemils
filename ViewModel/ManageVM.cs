@@ -27,5 +27,7 @@ namespace TryLogin.ViewModel
         public string Username { get; set; }
         public string Password { get; set; }
         public int UserID { get; set; }
+        public HttpPostedFileBase[] files { get; set; }
+        public string FilePath { get; set;  }
     }
 }
